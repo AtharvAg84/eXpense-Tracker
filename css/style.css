@@ -1,0 +1,234 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(45deg, #A8D8E0, #E5B3E2); /* Background gradient (Light Blue to Light Purple) */
+    color: #000000; /* Text color */
+    line-height: 1.6;
+}
+
+/* Container */
+.container_example {
+    color: #333333; /* Text color */
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+.header_example {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.header_example .logo_example {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.header_example h1 {
+    font-size: 24px;
+    font-weight: bold;
+    background: linear-gradient(45deg, #6A1B9A, #9B59B6); /* Gradient for header text (Purple to Light Purple) */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Categories Section */
+.categories_section_example {
+    margin-bottom: 30px;
+}
+
+.categories_header_example {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.categories_header_example h2 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.gallery_button_example {
+    font-size: 14px;
+    padding: 5px 10px;
+    background-color: #6A1B9A; /* Button color (Purple) */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.categories_example {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+}
+
+.category_card_example {
+    background: white;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.category_card_example h3 {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.category_card_example p {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333333;
+}
+
+/* Expenses Section */
+.expenses_section_example h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.tabs_example {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.tab_example {
+    padding: 8px 15px;
+    background: #ddd;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.tab_example.active {
+    background: #6A1B9A; /* Active tab background (Purple) */
+    color: white;
+}
+
+.expenses_list_example {
+    background: white;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.expenses_group_example {
+    margin-bottom: 20px;
+}
+
+.group_header_example {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.expenses_group_example ul {
+    list-style: none;
+}
+
+.expenses_group_example ul li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.expenses_group_example ul li span {
+    font-weight: bold;
+}
+
+/* Balance Box */
+.balance-box {
+    background: linear-gradient(45deg, #6A1B9A, #9B59B6); /* Gradient for balance box */
+    padding: 1.5rem;
+    border-radius: 8px;
+    color: white;
+    text-align: center;
+}
+
+/* Current Amount Box */
+.current-amount-box {
+    background: #A8E6CE; /* Light Green for current amount box */
+    padding: 1.5rem;
+    border-radius: 8px;
+    color: #333333;
+    text-align: center;
+}
+
+/* Expense Box */
+.expense-box {
+    background: #F8BBD0; /* Light Pink for expense box */
+    padding: 1.5rem;
+    border-radius: 8px;
+    color: #333333;
+    text-align: center;
+}
+
+/* Buttons for Add Budget and Add Expense */
+.add-budget-btn, .add-expense-btn {
+    background: #6A1B9A; /* Button color (Purple) */
+    padding: 1rem 2rem;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+}
+
+.add-budget-btn:hover, .add-expense-btn:hover {
+    background: #9B59B6; /* Hover effect (Light Purple) */
+}
+
+/* Button Liquid Effect */
+.submit-btn .liquid {
+    position: absolute;
+    top: -60px;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: 0.5s;
+}
+
+.submit-btn:hover .liquid {
+    top: -120px;
+}
+
+/* General Button Styling */
+button {
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+}

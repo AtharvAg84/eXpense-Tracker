@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - ExpenseTracker</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    main {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .policy-box {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 90%;
+      margin: auto;
+      text-align: left;
+    }
+
+    h1 {
+      color: #142850;
+      font-weight: bold;
+    }
+
+    h2 {
+      font-size: 18px;
+      font-weight: bold;
+      border-bottom: 2px solid #00aaff;
+      padding-bottom: 5px;
+    }
+
+    p,
+    ul {
+      color: #333;
+      line-height: 1.6;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+  </style>
+  <link rel="stylesheet" href="/css/style-privacypolicy.css">
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const menuToggle = document.querySelector(".dropdown-toggle");
+      const dropdown = document.querySelector(".dropdown");
+
+      menuToggle.addEventListener("click", function (event) {
+        event.stopPropagation();
+        dropdown.classList.toggle("active");
+      });
+
+      document.addEventListener("click", function (event) {
+        if (!dropdown.contains(event.target)) {
+          dropdown.classList.remove("active");
+        }
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="header-content">
+      <div class="header-left">
+        <div style="display: flex; align-items: center;">
+          <img src="/images/budget.png" alt="ExpenseTracker Logo" style="height: 40px; margin-right: 10px;">
+          <h1>eXpense Tracker</h1>
+        </div>
+        <p>Your personal tool for eXpense management</p>
+      </div>
+      <div class="header-right">
+        <a href="#language" title="Change Language">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-translate"
+            viewBox="0 0 16 16">
+            <path
+              d="M4.545 6.714 4.11 8H3l1.862-5h1.284L8 8H6.833l-.435-1.286zm1.634-.736L5.5 3.956h-.049l-.679 2.022z" />
+            <path
+              d="M0 2a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v3h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-3H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zm7.138 9.995q.289.451.63.846c-.748.575-1.673 1.001-2.768 1.292.178.217.451.635.555.867 1.125-.359 2.08-.844 2.886-1.494.777.665 1.739 1.165 2.93 1.472.133-.254.414-.673.629-.89-1.125-.253-2.057-.694-2.82-1.284.681-.747 1.222-1.651 1.621-2.757H14V8h-3v1.047h.765c-.318.844-.74 1.546-1.272 2.13a6 6 0 0 1-.415-.492 2 2 0 0 1-.94.31" />
+          </svg>
+        </a>
+        <a href="#login" title="Login">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-person-badge"
+            viewBox="0 0 16 16">
+            <path d="M6.5 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1zM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+            <path
+              d="M4.5 0A2.5 2.5 0 0 0 2 2.5V14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2.5A2.5 2.5 0 0 0 11.5 0zM3 2.5A1.5 1.5 0 0 1 4.5 1h7A1.5 1.5 0 0 1 13 2.5v10.795a4.2 4.2 0 0 0-.776-.492C11.392 12.387 10.063 12 8 12s-3.392.387-4.224.803a4.2 4.2 0 0 0-.776.492z" />
+          </svg>
+        </a>
+
+        <div class="dropdown">
+          <svg class="dropdown-toggle" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white"
+            class="bi bi-list" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+          </svg>
+          <div class="dropdown-menu">
+            <a href="main.html">Home</a>
+            <a href="transaction.html">Transactions</a>
+            <!-- <a href="#services">Services</a> -->
+            <a href="contactUs.html">Contact</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+  <main>
+    <h1>Privacy Policy</h1>
+
+    <section class="policy-box">
+      <p>Your privacy is important to us. This Privacy Policy explains how ExpenseTracker collects, uses, and protects
+        your personal and financial data while helping you track and manage your income and expenditures.</p>
+
+      <h2>1. Information We Collect</h2>
+      <p>We collect the following types of information when you use our platform:</p>
+      <ul>
+        <li>Personal Information: Name, email address, and account details.</li>
+        <li>Financial Data: Income details, expense records, budget data, and transaction history.</li>
+        <li>Usage Data: Browsing history, interactions with our website, and how you use the tracker.</li>
+        <li>Cookies and Tracking: Data collected through cookies to enhance your user experience.</li>
+      </ul>
+
+      <h2>2. How We Use Your Information</h2>
+      <p>We use your data for the following purposes:</p>
+      <ul>
+        <li>Tracking and categorizing your expenses and income.</li>
+        <li>Generating financial reports and summaries to help manage your budget.</li>
+        <li>Personalizing your experience and offering relevant insights into your spending habits.</li>
+        <li>Sending updates, reminders, and newsletters (if subscribed).</li>
+        <li>Ensuring security and preventing fraudulent activities.</li>
+      </ul>
+
+      <h2>3. Data Sharing & Third Parties</h2>
+      <p>We do not sell your personal or financial data. However, we may share it with trusted third parties such as:
+      </p>
+      <ul>
+        <li>Service providers assisting in the operation of our platform.</li>
+        <li>Legal authorities when required by law or to protect our rights.</li>
+        <li>Third-party advertisers (only anonymized data to improve our services).</li>
+      </ul>
+
+      <h2>4. Cookies & Tracking Technologies</h2>
+      <p>We use cookies and similar technologies to improve your experience on our website. You can manage cookie
+        preferences in your browser settings.</p>
+
+      <h2>5. Data Security</h2>
+      <p>We implement strong security measures to protect your personal and financial data. However, we cannot guarantee
+        absolute security due to the nature of the internet.</p>
+
+      <h2>6. Your Rights</h2>
+      <p>You have the right to access, modify, or delete your personal and financial data. To exercise your rights,
+        please contact us with your request.</p>
+
+      <h2>7. Changes to This Policy</h2>
+      <p>We may update this policy from time to time. The latest version will always be available on our website for
+        your reference.</p>
+
+      <h2>8. Contact Us</h2>
+      <p>If you have any questions or concerns about this Privacy Policy, please contact us at
+        support@expensetracker.com.</p>
+    </section>
+  </main>
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-left">
+      <p style="color: white;">&copy; 2025 eXpense Tracker. All rights reserved.</p>
+    </div>
+    <div class="footer-right">
+      <a href="pp.html">Privacy Policy</a>
+      <a href="tac.html">Terms of Service</a>
+    </div>
+  </footer>
+
+</body>
+
+</html>

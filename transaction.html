@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker - Dashboard</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="header-title">User, <span class="gradient-text">Dashboard</span></h1>
+            <div class="header-stats">
+                <div class="stat-box">
+                    <span class="stat-value">$0.00</span>
+                    <span class="stat-label">Total Spent</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-value">0</span>
+                    <span class="stat-label">Transactions</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="dashboard">
+            <section class="input-section glassmorphism">
+                <form id="expenseForm" class="expense-form">
+                    <div class="input-group floating-input">
+                        <input type="text" id="expenseName" required>
+                        <label for="expenseName">Wallet Name</label>
+                    </div>
+                    <div class="input-group floating-input">
+                        <input type="number" id="expenseAmount" step="0.01" required>
+                        <label for="expenseAmount">Amount</label>
+                    </div>
+                    <div class="input-group">
+                        <select id="expenseCategory" class="custom-select">
+                            <option value="food">Food</option>
+                            <option value="transport">Transport</option>
+                            <option value="housing">Housing</option>
+                            <option value="entertainment">Entertainment</option>
+                            <option value="utilities">Utilities</option>
+                            <option value="shopping">Shopping</option>
+                            <option value="groceries">Groceries</option>
+                            <option value="health & fitness">Health & Fitness</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <span>Add Expense</span>
+                        <div class="liquid"></div>
+                    </button>
+                </form>
+            </section>
+
+            <section class="chart-section glassmorphism">
+                <canvas id="expenseChart"></canvas>
+            </section>
+
+            <section class="transactions-section glassmorphism">
+                <h2 class="section-title">Recent Transactions</h2>
+                <div class="transactions-list" id="transactionsList">
+                    <!-- Transactions will be dynamically added here -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+
+    <div class="container_example">
+        <!-- Header -->
+        <header class="header_example">
+            <div class="logo_example" style="color: rgb(255, 1, 128);">
+                <span>☰</span>
+            </div>
+            <h1>Expense Tracker</h1>
+        </header>
+
+
+        <!-- Categories Section -->
+        <section class="categories_section_example">
+            <div class="categories_header_example">
+                <h2 style="color: rgb(255, 1, 128);">Categories</h2>
+                <button class="gallery_button_example">📊 Gallery</button>
+            </div>
+            <div class="categories_example">
+                <div class="category_card_example">
+                    <h3 id="food_drinks_heading">🍴 Food & Drinks</h3>
+                    <p id="food_drinks">$20.00</p>
+                </div>
+                <div class="category_card_example">
+                    <h3 id="groceries_heading">🛒 Groceries</h3>
+                    <p id="groceries">$60.00</p>
+                </div>
+                <div class="category_card_example">
+                    <h3 id="shopping_heading">🛍️ Shopping</h3>
+                    <p id="shopping">$0.00</p>
+                </div>
+                <div class="category_card_example">
+                    <h3 id="transport_heading">🚗 Transport</h3>
+                    <p id="transport">$0.00</p>
+                </div>
+                <div class="category_card_example">
+                    <h3 id="entertainment_heading">🎥 Entertainment</h3>
+                    <p id="entertainment">$0.00</p>
+                </div>
+                <div class="category_card_example">
+                    <h3 id="health_fitness_heading">Health & Fitness</h3>
+                    <p id="health_fitness">$0.00</p>
+                </div>
+                <div class="category_card_example">
+                    <h3 id="housing_heading">Housing</h3>
+                    <p id="housing">$100.00</p>
+                </div>
+                <div class="category_card_example">
+                    <h3 id="utilities_heading">💡 Utilities</h3>
+                    <p id="utilities">$120.00</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Expenses Section -->
+        <section class="expenses_section_example">
+            <h2 style="color: rgb(255, 1, 128);">Expenses</h2>
+            <div class="tabs_example">
+                <button class="tab_example active">Daily</button>
+                <button class="tab_example">Monthly</button>
+                <button class="tab_example">Calendar</button>
+                <button class="tab_example">History</button>
+            </div>
+            <div class="expenses_list_example">
+                <div class="expenses_group_example">
+                    <div class="group_header_example">
+                        <span>▼ Oct 17, 2024</span>
+                        <span>2</span>
+                    </div>
+                    <ul>
+                        <li>💡 Electricity Bill <span>$120.00</span></li>
+                        <li>🏠 Rent Payment <span>$100.00</span></li>
+                    </ul>
+                </div>
+                <div class="expenses_group_example">
+                    <div class="group_header_example">
+                        <span>▼ Oct 18, 2024</span>
+                        <span>2</span>
+                    </div>
+                    <ul>
+                        <li>🍴 Lunch Out with Friends <span>$20.00</span></li>
+                        <li>🛒 Weekly Grocery Shopping <span>$60.00</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+
+</html>

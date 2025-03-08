@@ -1,0 +1,56 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const app = express();
+const PORT = 3000;
+
+app.use(bodyParser.json());
+app.use(express.static('public'));
+
+// In-memory user storage for demonstration purposes
+const users = [];
+const JWT_SECRET = 'your_jwt_secret';
+
+app.post('/register', async (req, res) => {
+  const { email, password } = req.body;
+
+  // Check if user already exists
+  const userExists = users.find(user => user.email === email);
+  if (userExists) {
+    return res.status(400).json({ message: 'User already exists' });
+  }
+
+  // Hash the password
+  const hashedPassword = await bcrypt.hash(password, 10);
+
+  // Store the user
+  users.push({ email, password: hashedPassword });
+
+  res.status(201).json({ message: 'User registered successfully' });
+});
+
+app.post('/login', async (req, res) => {
+  const { email, password } = req.body;
+
+  // Find the user
+  const user = users.find(user => user.email === email);
+  if (!user) {
+    return res.status(400).json({ message: 'User not found' });
+  }
+
+  // Check the password
+  const isPasswordValid = await bcrypt.compare(password, user.password);
+  if (!isPasswordValid) {
+    return res.status(400).json({ message: 'Invalid password' });
+  }
+
+  // Generate a JWT token
+  const token = jwt.sign({ email: user.email }, JWT_SECRET, { expiresIn: '1h' });
+
+  res.json({ token });
+});
+
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});

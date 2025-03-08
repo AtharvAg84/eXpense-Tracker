@@ -1,0 +1,124 @@
+/**
+Palette: https://scrimba.com/links/hometown-palette
+RED: #E63946
+LIGHT: #F1FAEE
+AQUA: #A8DADC
+LIGHT BLUE: #457B9D
+DARK BLUE: #1D3557
+*/
+
+body {
+  margin: 0;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+#extracted-header {
+  background-image: url(/images/Background.jpg); /* Add your background image here */
+  background-size: cover;
+  background-position: center;
+  min-height: 50vh; /* Sets a minimum height relative to the viewport */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.extracted-h1 {
+  background: #1d3557;
+}
+
+.extracted-h2 {
+  background: #457b9d;
+  width: 500px;
+}
+
+.extracted-h1,
+.extracted-h2 {
+  margin: 0;
+  color: white;
+  padding: 6px;
+  border-radius: 10px;
+}
+
+#extracted-activity {
+  padding: 50px 20px;
+  background-color: #f8facd;
+}
+
+#extracted-activities-header {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#extracted-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.extracted-bold {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.extracted-round {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.extracted-describe {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.extracted-spots {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+  background: #fafafa;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.extracted-spots:hover {
+  transform: translateY(-10px);
+}
+
+#extracted-container-2 {
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  color: #1d3557;
+  background: #a8dadc;
+  padding: 20px 10px;
+  border-radius: 30px;
+  margin: 50px auto;
+  width: 500px;
+  height: 250px;
+  box-shadow: 10px 10px #1d3557;
+}
+
+.extracted-self-pic {
+  border-radius: 20px;
+}
+
+.extracted-italic {
+  font-style: italic;
+}
+
+#extracted-brief_intro {
+  padding: 30px;
+}

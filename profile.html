@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Profile Page</title>
+    <link rel="stylesheet" href="/css/style-profile.css">
+    <script defer src="js/script-profile.js"></script>
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar collapsed">
+    <div class="sidebar-toggle" onclick="toggleSidebar()">☰</div>
+    <ul class="menu">
+        <li><a href="profile.html" class="icon">🏠 <span class="text">Dashboard</span></a></li>
+        <li><a href="#" class="icon">📜 <span class="text">Profile</span></a></li>
+        <li><a href="transaction.html" class="icon">📊 <span class="text">Expenses</span></a></li>
+        <li><a href="#" class="icon">⚙️ <span class="text">Settings</span></a></li>
+        <li class="logout"><a href="main.html" class="icon">🚪 <span class="text">Logout</span></a></li>
+    </ul>
+</div>
+
+<!-- Main Content -->
+<div class="main-content">
+    <header>
+        <div style="display: flex; align-items: center;">
+            <img src="/images/budget.png" alt="ExpenseTracker Logo" style="height: 40px; margin-right: 10px;">
+            <h1 class="logo">eXpense Tracker</h1>
+        </div>
+        <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
+    </header>
+    
+    <div class="profile-container">
+        <section class="profile-card">
+            <img src="/images/profile_icon.jpg" alt="Profile Picture" class="profile-pic">
+            <h2>Alexander Grey</h2>
+            <p>Software Engineer | AI & Robotics Enthusiast</p>
+            <button class="edit-btn">Edit Profile</button>
+        </section>
+        
+        <section class="profile-card">
+            <h2>Account Details</h2>
+            <p><strong>Account Type:</strong> Premium</p>
+            <p><strong>Member Since:</strong> January 2021</p>
+            <p><strong>Budget Plan:</strong> Monthly</p>
+        </section>
+    </div>    
+
+    <section class="expenses">
+        <h2>Financial Overview</h2>
+        <div class="expense-grid">
+            <div class="expense-box">
+                <h3>Monthly Income</h3>
+                <p>$8,000</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 80%;"></div>
+                </div>
+            </div>
+            <div class="expense-box">
+                <h3>Monthly Spending</h3>
+                <p>$5,500</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 55%;"></div>
+                </div>
+            </div>
+            <div class="expense-box">
+                <h3>Savings</h3>
+                <p>$2,500</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 25%;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="profile-spending-summary">
+        <h2>Spending Summary</h2>
+        <ul>
+            <li>🏡 Rent: <span>$1,200</span></li>
+            <li>🚗 Transport: <span>$300</span></li>
+            <li>🍔 Food: <span>$500</span></li>
+            <li>💳 Subscriptions: <span>$100</span></li>
+        </ul>
+    </div>
+    
+    <div class="profile-actions">
+        <button class="profile-btn generate-report">📊 Generate Report</button>
+    </div>    
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Get to Know Us</h3>
+                <a href="#">About Us</a>
+                <a href="#">Careers</a>
+                <a href="#">Press Releases</a>
+                <a href="#">Our Mission</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Connect with Us</h3>
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Features</h3>
+                <a href="#">Wallet Analytics</a>
+                <a href="#">Budget Planning</a>
+                <a href="#">Savings Calculator</a>
+                <a href="#">Secure Transactions</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Help & Support</h3>
+                <a href="#">Your Account</a>
+                <a href="#">FAQs</a>
+                <a href="#">Customer Support</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+
+
+
+        <div class="footer-bottom">
+            <p>© 2025 eXpense Tracker. All Rights Reserved.</p>
+            <p>Designed by: Subal & Atharv</p>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

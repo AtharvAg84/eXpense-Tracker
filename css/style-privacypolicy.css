@@ -1,0 +1,294 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+  --light-blue: #A8D8E0;
+  --light-purple: #E5B3E2;
+  --dark-purple: #6A1B9A;
+  --lighter-purple: #9B59B6;
+  --light-green: #A8E6CE;
+  --light-pink: #F8BBD0;
+  --text-dark: #333333;
+  --text-light: #000000;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* General Body Styling */
+html, body {
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f4f7f6;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header Section */
+header {
+  background: linear-gradient(135deg, #6A1B9A, #9B59B6);
+  color: #d3d3d3;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.header-left {
+  text-align: left;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: #00aaff;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+header p {
+  font-size: 1rem;
+  margin-top: 5px;
+  color: #d3d3d3;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-icon {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+}
+
+.header-icon:hover {
+  transform: scale(1.1);
+  filter: brightness(1.3);
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: white;
+  color: #333;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  display: none;
+  flex-direction: column;
+  padding: 10px;
+  min-width: 150px;
+}
+
+.dropdown-menu a {
+  text-decoration: none;
+  color: #142850;
+  padding: 12px;
+  border-radius: 5px;
+  display: block;
+  transition: 0.2s ease-in-out;
+}
+
+.dropdown-menu a:hover {
+  background: #f0f0f0;
+}
+
+.dropdown.active .dropdown-menu {
+  display: flex;
+}
+
+/* Main Content Section */
+main {
+  padding: 20px;
+}
+
+.content-container {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.content-container h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+form {
+  margin: 20px 0;
+}
+
+form label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+form input {
+  padding: 12px 20px;  /* Increased padding for oval shape */
+  font-size: 16px;
+  width: 60%;
+  max-width: 500px;
+  border: 1px solid #ccc;
+  border-radius: 50px;  /* Making the input field oval */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+form input:hover,
+form input:focus {
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transform: scale(1.02);
+}
+
+/* Oval Shape Search Button */
+form .search-btn {
+  margin-top: 10px;
+  padding: 12px 30px;  /* Adjusted padding to make it oval */
+  font-size: 16px;
+  color: white;
+  background-color: #142850;
+  border: none;
+  border-radius: 50px;  /* Making the button oval */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+form .search-btn:hover {
+  background-color: #142850;
+  transform: scale(1.05);
+}
+
+/* Trending Section */
+.trending {
+  margin: 40px 0;
+}
+
+.trending h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.trending-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* .card-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+} */
+
+.card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 350px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px); /* Lift effect */
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  width: 100%;
+  height: 350px;  /* Fixed height */
+  object-fit: cover;  /* Ensures the image fits the container without cutting off the main content */
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.card-body h5 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.card-body p {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 14px;
+  color: white;
+  background-color: #142850;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #142850;
+  transform: scale(1.05);
+}
+
+/* Footer Section */
+footer {
+  background: #142850;
+  color: #d3d3d3;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.footer-left p {
+  margin: 0;
+}
+
+.footer-right a {
+  color: #d3d3d3;
+  text-decoration: none;
+  margin-left: 15px;
+  transition: color 0.3s ease;
+}
+
+.footer-right a:hover {
+  color: #00aaff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  form input {
+    width: 90%;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 320px;
+  }
+}

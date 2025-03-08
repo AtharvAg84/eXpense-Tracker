@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="/css/style_main_page.css">
+    <link rel="stylesheet" href="/css/extracted_tipie.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <!-- <link rel="stylesheet" href="assets/css/templatemo-space-dynamic.css"> -->
+    <link rel="stylesheet" href="assets/css/animated.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+    <script>
+        // For dropdown 
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuToggle = document.querySelector(".dropdown-toggle");
+            const dropdown = document.querySelector(".dropdown");
+
+            menuToggle.addEventListener("click", function (event) {
+                event.stopPropagation();
+                dropdown.classList.toggle("active");
+            });
+
+            document.addEventListener("click", function (event) {
+                if (!dropdown.contains(event.target)) {
+                    dropdown.classList.remove("active");
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <!-- Main Header -->
+    <header>
+        <div style="display: flex; align-items: center;">
+            <img src="/images/budget.png" alt="ExpenseTracker Logo" style="height: 40px; margin-right: 10px;">
+            <h1 class="logo">eXpense Tracker</h1>
+        </div>
+
+        <!-- markup of search bar -->
+        <input type="text" class="searchfield" />
+        <div class="search"></div>
+        <!-- <div class="search">
+            <input class="srch" type="search" name="" placeholder="Type To text">
+            <a href="#"> <button class="btn">Search</button></a> -->
+        </div>
+        <!-- Transaction Header -->
+        <div class="actions">
+            <button>+ Add Transaction</button>
+            <div class="summary">
+                <div><strong>Balance:</strong> $<span id="balance">500</span></div>
+                <div><strong>Income:</strong> $<span id="income">1500</span></div>
+                <div><strong>Expenses:</strong> $<span id="expenses">1000</span></div>
+            </div>
+        </div>
+        <!-- Profile Edit profile n all -->
+        <div class="profile">
+            <img src="/images/budget.png" alt="Profile">
+            <h2 class="logo" style="font-size: smaller;">Profile</h2>
+            <div class="dropdown" style="padding: 0px">
+                <svg class="dropdown-toggle" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white"
+                    class="bi bi-list" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+                </svg>
+                <div class="dropdown-menu">
+                    <a href="login.html">Login</a>
+                    <a href="register.html">Register</a>
+                    <a href="profile.html">Profile</a>
+                    <a href="transaction.html">Transactions</a>
+                    <!-- <a href="#services">Services</a> -->
+                    <a href="contactUs.html">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <br>
+    <hr>
+    <!-- Second Header (Navigation Menu) -->
+    <nav class="sub-header">
+        <a href="pagesadded.html">Home</a>
+        <a href="transaction.html">Transactions</a>
+        <a href="pagesadded.html">Reports</a>
+        <a href="contactUs.html">Contact Us</a>
+        <a href="pp.html">Privacy Policy</a>
+    </nav>
+    <br>
+
+
+
+
+    <hr>
+    <hr>
+    <hr>
+    <br>
+
+    <!-- HERO SECTION -->
+    <div id="extracted-header">
+        <h1 class="extracted-h1">Welcome to eXpense Tracker</h1>
+        <h2 class="extracted-h2">Track your expenses, set budgets, and achieve your savings goals effortlessly.</h2>
+    </div>
+    <br>
+    <!-- ACTIVITIES SECTION -->
+    <div id="extracted-activity">
+        <h3 id="extracted-activities-header" class="extracted-bold">Top Features of eXpense Tracker</h3>
+        <div id="extracted-container">
+            <div class="extracted-spots">
+                <img src="/images/wallet.jpg" class="extracted-round" alt="Track Daily Expenses">
+                <p class="extracted-bold">Track Your Daily Expenses</p>
+                <p class="extracted-describe">Easily log and categorize your daily expenses. Get real-time insights into
+                    where your money is going and start budgeting smarter.</p>
+            </div>
+            <div class="extracted-spots">
+                <img src="images/track_monthly_expense.jpg" class="extracted-round" alt="Set Monthly Budgets">
+                <p class="extracted-bold">Set Monthly Budgets</p>
+                <p class="extracted-describe">Create and track personalized budgets for different categories. Receive
+                    notifications when you approach your budget limits.</p>
+            </div>
+            <div class="extracted-spots">
+                <img src="images/savings_goal.jpg" class="extracted-round" alt="Achieve Your Savings Goals">
+                <p class="extracted-bold">Achieve Your Savings Goals</p>
+                <p class="extracted-describe">Set financial goals like saving for a vacation or an emergency fund, and
+                    track your progress towards them.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- GUIDE SECTION -->
+    <!-- <div id="extracted-container-2">
+        <img src="images/team-member.jpg" class="extracted-self-pic">
+        <div class="extracted-wrapper">
+            <h3>Your Personal Finance Guide</h3>
+            <p class="extracted-italic" id="extracted-brief_intro">"With over 10 years of experience in personal
+                finance, I created this app to help individuals easily manage their expenses and achieve financial
+                freedom."</p>
+            <h4>John Doe</h4>
+            </div>
+        <img src="images/team-member.jpg" class="extracted-self-pic">
+    </div> -->
+
+    <!-- <div id="extracted-container-2">
+        <img src="images/team-member.jpg" class="extracted-self-pic">
+        <div class="extracted-wrapper">
+            <h3>Your Personal Finance Guide</h3>
+            <p class="extracted-italic" id="extracted-brief_intro">"With over 10 years of experience in personal
+                finance, I created this app to help individuals easily manage their expenses and achieve financial
+                freedom."</p>
+            <h4>John Doe</h4>
+            </div>
+        <img src="images/team-member.jpg" class="extracted-self-pic">
+    </div> -->
+    <hr>
+
+    <!-- cards -->
+    <div class="card-container">
+        <div class="card">
+            <!-- 1 -->
+            <div class="profile">
+                <img class="img-fluid" src="/images/MyImage.jpeg">
+            </div>
+            <!-- 2 -->
+            <div class="main-content">
+                <h3 class="name">Atharv Agarwal</h3>
+                <span><i class="fab fa-instagram"></i> atharv8484</span>
+                <h4 class="title">Android Developer 👨‍💻</h4>
+            </div>
+            <!-- 3 -->
+            <ul class="social">
+                <li><a href="#" class="fa fa-github"></a></li>
+                <li><a href="#" class="fa fa-twitter"></a></li>
+                <li><a href="#" class="fa fa-instagram"></a></li>
+                <li><a href="#" class="fa fa-telegram"></a></li>
+            </ul>
+            <!-- 4 -->
+            <div class="skills">
+                <h6>Skills</h6>
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                    <li>Java</li>
+                    <li>C/C++</li>
+                    <li>Python</li>
+                    <li>SQL</li>
+                    <li>Kotlin</li>
+                    <li>Github</li>
+                    <li>Visual Studio Code</li>
+                    <li>Android Studio</li>
+                    <li>Firebase</li>
+                    <li>Auto CAD</li>
+                    <li>Wix</li>
+                    <li>Wordpress</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <!-- 1 -->
+            <div class="profile">
+                <img class="img-fluid" src="/images/subal.jpg">
+            </div>
+            <!-- 2 -->
+            <div class="main-content">
+                <h3 class="name">Subal V R</h3>
+                <span><i class="fab fa-instagram"></i> subalvr</span>
+                <h4 class="title">Web Developer 👨‍💻</h4>
+            </div>
+            <!-- 3 -->
+            <ul class="social">
+                <li><a href="#" class="fa fa-github"></a></li>
+                <li><a href="#" class="fa fa-twitter"></a></li>
+                <li><a href="#" class="fa fa-instagram"></a></li>
+                <li><a href="#" class="fa fa-telegram"></a></li>
+            </ul>
+            <!-- 4 -->
+            <div class="skills">
+                <h6>Skills</h6>
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                    <li>React.js</li>
+                    <li>Next.js</li>
+                    <li>Node.js</li>
+                    <li>MySQL</li>
+                    <li>Git & GitHub</li>
+                    <li>REST APIs</li>
+                    <li>Linux Server Management</li>
+                    <li>Figma (UI/UX Design)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/dd8c49730d.js" crossorigin="anonymous"></script>
+    <hr>
+    <hr>
+    <br>
+    <!-- Footer Section -->
+    <hr>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Get to Know Us</h3>
+                <a href="#">About Us</a>
+                <a href="#">Careers</a>
+                <a href="#">Press Releases</a>
+                <a href="#">Our Mission</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Connect with Us</h3>
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Features</h3>
+                <a href="#">Wallet Analytics</a>
+                <a href="#">Budget Planning</a>
+                <a href="#">Savings Calculator</a>
+                <a href="#">Secure Transactions</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Help & Support</h3>
+                <a href="#">Your Account</a>
+                <a href="#">FAQs</a>
+                <a href="#">Customer Support</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+
+
+
+        <div class="footer-bottom">
+            <p>© 2025 eXpense Tracker. All Rights Reserved.</p>
+            <p>Designed by: Subal & Atharv</p>
+        </div>
+    </footer>
+</body>
+
+</html>
