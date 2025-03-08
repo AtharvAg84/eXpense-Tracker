@@ -1,0 +1,48 @@
+Pages: - 
+	All the buttons should be working
+	Next and previous pages button, to navigate all the pages.
+	Touch logo/or title, go to home page
+
+1) Home Page
+- “Balance”, “Income” and “expense page”
+- “Search bar” in the home page is should be properly aligned. 
+- “Add transaction” button in the home, should work. 
+- Home button is not working
+- profile, icon, should be first, the login
+- Total expense and all those things should not be shown
+- Organize login and register activity and once the user login, then only should the “total expense” and details, personals, “transactions details”
+- Add more details to the home page, in the sections of home page
+ Report button in the home page, (if user is logined, then only should this button) otherwise, display login first. This “Report Button” should go directly to the graphs, 
+
+2) Profile page 
+- Edit profile should work, which will ask the user to put the default salary. 
+- Generate (csv) buttons should works.
+- navigation buttons in the profile page should work.
+- dynamic updates should be there.
+ Savings and goals, in the same page.
+ include line graphs
+ A only graphs page naming “Report” should be there, that will dynamically should the details, transaction history and all the things.
+ Default expenses, and monthly expenses. 
+
+3) Contact Us 
+- this page should have back button, go the main page button
+- if the details are not filled, then it should show, to fill in all the details.
+- then cancel and submit button, should work. 
+- cancel button should clear the content.
+- it should have logo and title.
+
+4) Transaction page
+- separate the income and expense properly, and then generate.
+- update the value dynamically 
+- column structure should work there, that “daily”, custom
+- FONT color and over all theme,
+- Adding transactions should be container look into carefully.
+- dropdown should have more css.
+
+5)  Login activity,
+- for those, we want a back button, to go back directly. 
+
+6) Register activity,
+- we should have more details, to register the user.
+
+
