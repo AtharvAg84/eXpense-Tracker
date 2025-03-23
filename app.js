@@ -43,7 +43,8 @@ document.addEventListener("DOMContentLoaded", () => {
   function updateUI() {
     renderTransactions();
     updateStats();
-    updateChart();
+    updateChart(); // Existing Doughnut Chart
+    updateCategorySection(); // ✅ Update categories dynamically
   }
 
   // Render Transactions
@@ -89,51 +90,43 @@ document.addEventListener("DOMContentLoaded", () => {
     const total = expenses.reduce((sum, expense) => sum + expense.amount, 0);
     totalSpentElement.textContent = `$${total.toFixed(2)}`;
     transactionCountElement.textContent = expenses.length;
+  }
 
-    // Initialize category amounts object
-    const categoryAmounts = {
-      'Food & Drinks': 0,
-      'Groceries': 0,
-      'Shopping': 0,
-      'Transport': 0,
-      'Entertainment': 0,
-      'Health & Fitness': 0,
-      'Housing': 0,
-      'Utilities': 0
+  // Update Categories Section
+  function updateCategorySection() {
+    const categoryElements = {
+      food: document.getElementById("food_drinks"),
+      transport: document.getElementById("transport"),
+      housing: document.getElementById("housing"),
+      entertainment: document.getElementById("entertainment"),
+      utilities: document.getElementById("utilities"),
+      shopping: document.getElementById("shopping"),
+      groceries: document.getElementById("groceries"),
+      "health & fitness": document.getElementById("health_fitness"),
     };
 
-    // Accumulate the amount for each category
-    expenses.forEach((expense) => {
-      if (categoryAmounts[expense.category] !== undefined) {
-        categoryAmounts[expense.category] += expense.amount;
-      }
-    });
+    // Reset all category amounts to 0 before recalculating
+    for (let key in categoryElements) {
+      categoryElements[key].textContent = `$0.00`;
+    }
 
-    // Update the respective paragraphs with category amounts
-    document.getElementById("food_drinks").textContent = `$${categoryAmounts[
-      "Food & Drinks"
-    ].toFixed(2)}`;
-    document.getElementById("groceries").textContent = `$${categoryAmounts[
-      "Groceries"
-    ].toFixed(2)}`;
-    document.getElementById("shopping").textContent = `$${categoryAmounts[
-      "Shopping"
-    ].toFixed(2)}`;
-    document.getElementById("transport").textContent = `$${categoryAmounts[
-      "Transport"
-    ].toFixed(2)}`;
-    document.getElementById("entertainment").textContent = `$${categoryAmounts[
-      "Entertainment"
-    ].toFixed(2)}`;
-    document.getElementById("health_fitness").textContent = `$${categoryAmounts[
-      "Health & Fitness"
-    ].toFixed(2)}`;
-    document.getElementById("housing").textContent = `$${categoryAmounts[
-      "Housing"
-    ].toFixed(2)}`;
-    document.getElementById("utilities").textContent = `$${categoryAmounts[
-      "Utilities"
-    ].toFixed(2)}`;
+    // Calculate total per category
+    const categoryTotals = expenses.reduce((totals, expense) => {
+      if (!totals[expense.category]) {
+        totals[expense.category] = 0;
+      }
+      totals[expense.category] += expense.amount;
+      return totals;
+    }, {});
+
+    // Update UI for each category
+    for (let category in categoryTotals) {
+      if (categoryElements[category]) {
+        categoryElements[category].textContent = `$${categoryTotals[
+          category
+        ].toFixed(2)}`;
+      }
+    }
   }
 
   // Update Chart
@@ -188,6 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
       },
     });
   }
+  
 
   // Helper Functions
   function updateLocalStorage() {

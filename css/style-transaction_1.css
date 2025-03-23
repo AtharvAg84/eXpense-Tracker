@@ -1,167 +1,187 @@
 :root {
-    --light-blue: #A8D8E0;
-    --light-purple: #E5B3E2;
-    --dark-purple: #6A1B9A;
-    --lighter-purple: #9B59B6;
-    --light-green: #A8E6CE;
-    --light-pink: #F8BBD0;
-    --text-dark: #333333;
-    --text-light: #000000;
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: "Poppins", sans-serif;
-    background: linear-gradient(45deg, var(--light-blue), var(--light-purple)); /* Updated gradient */
-    color: var(--text-light);
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-  
-  .container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 2rem;
-  }
-  
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 3rem;
-    animation: float 3s ease-in-out infinite;
-  }
-  
-  .header-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    background: linear-gradient(45deg, var(--dark-purple), var(--lighter-purple)); /* Updated gradient */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  
-  .glassmorphism {
-    background: rgba(15, 23, 42, 0.6);
-    backdrop-filter: blur(16px) saturate(180%);
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    padding-left: 10px;
-  }
-  
-  .dashboard {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
-  }
-  
-  .input-section {
-    padding: 2rem;
-    position: relative;
-    overflow: hidden;
-    transition: var(--transition);
-  }
-  
-  .input-section::before {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, transparent, var(--dark-purple), transparent); /* Updated gradient */
-    animation: rotate 4s linear infinite;
-  }
-  
-  .input-group {
-    margin-bottom: 1.5rem;
-    position: relative;
-    padding: 20px;
-    border-radius: 10px;
-    background: linear-gradient(135deg, var(--light-purple), var(--lighter-purple)); /* Gradient background */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .input-group:hover {
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
-    transform: translateY(-5px); /* Slight lifting effect */
-  }
-  
-  .input-group input,
-  .input-group textarea {
-    padding: 15px 20px;
-    font-size: 1.1em;
-    width: 100%;
-    border: 2px solid #e1e1e1;
-    border-radius: 8px;
-    outline: none;
-    background-color: #ffffff;
-    transition: all 0.3s ease-in-out;
-    box-sizing: border-box;
-  }
-  
-  .input-group input:focus,
-  .input-group textarea:focus {
-    border-color: var(--dark-purple); /* Dark purple border on focus */
-    background-color: #f7f7f7; /* Light background when focused */
-  }
-  
-  .input-group label {
-    position: absolute;
-    top: 12px;
-    left: 20px;
-    font-size: 1em;
-    color: var(--text-dark);
-    font-weight: 600;
-    pointer-events: none;
-    transition: all 0.3s ease;
-    opacity: 0.8;
-  }
-  
-  .input-group input:focus ~ label,
-  .input-group textarea:focus ~ label,
-  .input-group input:not(:placeholder-shown) ~ label,
-  .input-group textarea:not(:placeholder-shown) ~ label {
-    top: -10px;
-    left: 15px;
-    font-size: 0.9em;
-    color: var(--dark-purple); /* Change color to dark purple when active */
-    opacity: 1;
-    transform: translateY(-10px);
-  }
-  
-  /* Input focus and shadow effects */
-  .input-group input:focus,
-  .input-group textarea:focus {
-    border-color: var(--lighter-purple);
-    box-shadow: 0 2px 10px rgba(154, 52, 157, 0.3); /* Light purple shadow on focus */
-  }
-  
-  /* Optional: Add an icon inside the input field */
-  .input-group .input-icon {
-    position: absolute;
-    top: 18px;
-    left: 18px;
-    color: var(--dark-purple);
-    font-size: 1.3em;
-    transition: all 0.3s ease;
-  }
-  
+  --light-blue: #a8d8e0;
+  --light-purple: #e5b3e2;
+  --dark-purple: #6a1b9a;
+  --lighter-purple: #9b59b6;
+  --light-green: #a8e6ce;
+  --light-pink: #f8bbd0;
+  --text-dark: #333333;
+  --text-light: #000000;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-  /* Custom select dropdown */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(
+    45deg,
+    var(--light-blue),
+    var(--light-purple)
+  ); /* Updated gradient */
+  color: var(--text-light);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.header-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(
+    45deg,
+    var(--dark-purple),
+    var(--lighter-purple)
+  ); /* Updated gradient */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glassmorphism {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(16px) saturate(180%);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  padding-left: 10px;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.input-section {
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.input-section::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    var(--dark-purple),
+    transparent
+  ); /* Updated gradient */
+  animation: rotate 4s linear infinite;
+}
+
+.input-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding: 20px;
+  border-radius: 10px;
+  background: linear-gradient(
+    135deg,
+    var(--light-purple),
+    var(--lighter-purple)
+  ); /* Gradient background */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.input-group:hover {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+  transform: translateY(-5px); /* Slight lifting effect */
+}
+
+.input-group input,
+.input-group textarea {
+  padding: 15px 20px;
+  font-size: 1.1em;
+  width: 100%;
+  border: 2px solid #e1e1e1;
+  border-radius: 8px;
+  outline: none;
+  background-color: #ffffff;
+  transition: all 0.3s ease-in-out;
+  box-sizing: border-box;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+  border-color: var(--dark-purple); /* Dark purple border on focus */
+  background-color: #f7f7f7; /* Light background when focused */
+}
+
+.input-group label {
+  position: absolute;
+  top: 12px;
+  left: 20px;
+  font-size: 1em;
+  color: var(--text-dark);
+  font-weight: 600;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  opacity: 0.8;
+}
+
+.input-group input:focus ~ label,
+.input-group textarea:focus ~ label,
+.input-group input:not(:placeholder-shown) ~ label,
+.input-group textarea:not(:placeholder-shown) ~ label {
+  top: -10px;
+  left: 15px;
+  font-size: 0.9em;
+  color: var(--dark-purple); /* Change color to dark purple when active */
+  opacity: 1;
+  transform: translateY(-10px);
+}
+
+/* Input focus and shadow effects */
+.input-group input:focus,
+.input-group textarea:focus {
+  border-color: var(--lighter-purple);
+  box-shadow: 0 2px 10px rgba(154, 52, 157, 0.3); /* Light purple shadow on focus */
+}
+
+/* Optional: Add an icon inside the input field */
+.input-group .input-icon {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  color: var(--dark-purple);
+  font-size: 1.3em;
+  transition: all 0.3s ease;
+}
+
+/* Custom select dropdown */
 .custom-select {
   -webkit-appearance: none; /* Remove default styling in WebKit browsers */
-  -moz-appearance: none;    /* Remove default styling in Firefox */
-  appearance: none;         /* Remove default styling */
-  background: linear-gradient(135deg, var(--light-purple), var(--lighter-purple)); /* Gradient background */
+  -moz-appearance: none; /* Remove default styling in Firefox */
+  appearance: none; /* Remove default styling */
+  background: linear-gradient(
+    135deg,
+    var(--light-purple),
+    var(--lighter-purple)
+  ); /* Gradient background */
   border: 2px solid var(--lighter-purple); /* Subtle border with lighter purple */
   border-radius: 8px;
   padding: 12px 20px;
@@ -202,7 +222,7 @@
 
 /* Adding a custom arrow icon to the select box */
 .custom-select::after {
-  content: ' ▼'; /* Down arrow */
+  content: " ▼"; /* Down arrow */
   font-size: 1.2em;
   color: var(--dark-purple);
   position: absolute;
@@ -219,181 +239,191 @@
 
 /* Drop down ends here. */
 
-  .floating-input input {
-    width: 100%;
-    padding: 1rem;
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    color: var(--text-dark); /* Updated text color */
-    transition: var(--transition);
+.floating-input input {
+  width: 100%;
+  padding: 1rem;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: var(--text-dark); /* Updated text color */
+  transition: var(--transition);
+}
+
+.floating-input label {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-light);
+  pointer-events: none;
+  transition: var(--transition);
+}
+
+.floating-input input:focus ~ label,
+.floating-input input:valid ~ label {
+  top: -10px;
+  left: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--dark-purple); /* Updated color */
+}
+
+.submit-btn {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    45deg,
+    var(--dark-purple),
+    var(--lighter-purple)
+  ); /* Updated gradient */
+  border: none;
+  padding: 1rem 2rem;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition);
+  width: 100%;
+  font-weight: 600;
+}
+
+.submit-btn .liquid {
+  position: absolute;
+  top: -60px;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.1);
+  transition: 0.5s;
+}
+
+.submit-btn:hover .liquid {
+  top: -120px;
+}
+
+.transactions-section {
+  padding: 2rem;
+  grid-column: span 2;
+}
+
+.transactions-list {
+  max-height: 400px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--dark-purple) transparent;
+}
+
+.transaction-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: rgba(15, 23, 42, 0.6);
+  border-radius: 8px;
+  animation: slideIn 0.5s ease-out;
+}
+
+/* New styles for balance box, current amount box, and expense box */
+.balance-box {
+  background: linear-gradient(
+    45deg,
+    var(--dark-purple),
+    var(--lighter-purple)
+  ); /* Balance box gradient */
+  padding: 1.5rem;
+  border-radius: 8px;
+  color: var(--text-light);
+  text-align: center;
+}
+
+.current-amount-box {
+  background: var(--light-green); /* Current amount box color */
+  padding: 1.5rem;
+  border-radius: 8px;
+  color: var(--text-dark);
+  text-align: center;
+}
+
+.expense-box {
+  background: var(--light-pink); /* Expense box color */
+  padding: 1.5rem;
+  border-radius: 8px;
+  color: var(--text-dark);
+  text-align: center;
+}
+
+/* Buttons for adding budget and expense */
+.add-budget-btn,
+.add-expense-btn {
+  background: var(--dark-purple); /* Button color */
+  padding: 1rem 2rem;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.add-budget-btn:hover,
+.add-expense-btn:hover {
+  background: var(--lighter-purple); /* Hover effect */
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
   }
-  
-  .floating-input label {
-    position: absolute;
-    left: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--text-light);
-    pointer-events: none;
-    transition: var(--transition);
+  50% {
+    transform: translateY(-10px);
   }
-  
-  .floating-input input:focus ~ label,
-  .floating-input input:valid ~ label {
-    top: -10px;
-    left: 0.5rem;
-    font-size: 0.8rem;
-    color: var(--dark-purple); /* Updated color */
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  .submit-btn {
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(45deg, var(--dark-purple), var(--lighter-purple)); /* Updated gradient */
-    border: none;
-    padding: 1rem 2rem;
-    color: white;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: var(--transition);
-    width: 100%;
-    font-weight: 600;
+  100% {
+    transform: rotate(360deg);
   }
-  
-  .submit-btn .liquid {
-    position: absolute;
-    top: -60px;
-    left: 0;
-    width: 100%;
-    height: 200px;
-    background: rgba(255, 255, 255, 0.1);
-    transition: 0.5s;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
   }
-  
-  .submit-btn:hover .liquid {
-    top: -120px;
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
-  
-  .transactions-section {
-    padding: 2rem;  
-    grid-column: span 2;
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    grid-template-columns: 1fr;
   }
-  
-  .transactions-list {
-    max-height: 400px;
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: var(--dark-purple) transparent;
-  }
-  
-  .transaction-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    background: rgba(15, 23, 42, 0.6);
-    border-radius: 8px;
-    animation: slideIn 0.5s ease-out;
-  }
-  
-  /* New styles for balance box, current amount box, and expense box */
-  .balance-box {
-    background: linear-gradient(45deg, var(--dark-purple), var(--lighter-purple)); /* Balance box gradient */
-    padding: 1.5rem;
-    border-radius: 8px;
-    color: var(--text-light);
-    text-align: center;
-  }
-  
-  .current-amount-box {
-    background: var(--light-green); /* Current amount box color */
-    padding: 1.5rem;
-    border-radius: 8px;
-    color: var(--text-dark);
-    text-align: center;
-  }
-  
-  .expense-box {
-    background: var(--light-pink); /* Expense box color */
-    padding: 1.5rem;
-    border-radius: 8px;
-    color: var(--text-dark);
-    text-align: center;
-  }
-  
-  /* Buttons for adding budget and expense */
-  .add-budget-btn, .add-expense-btn {
-    background: var(--dark-purple); /* Button color */
-    padding: 1rem 2rem;
-    color: white;
-    border-radius: 8px;
-    cursor: pointer;
-    border: none;
-    font-weight: 600;
-    transition: var(--transition);
-  }
-  
-  .add-budget-btn:hover, .add-expense-btn:hover {
-    background: var(--lighter-purple); /* Hover effect */
-  }
-  
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-  }
-  
-  @keyframes rotate {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-  
-  @keyframes slideIn {
-    from {
-      opacity: 0;
-      transform: translateX(100px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .dashboard {
-      grid-template-columns: 1fr;
-    }
-  }
-  
-  @font-face {
-    font-family: "Poppins";
-    src: url("./fonts/poppins.woff2") format("woff2");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: "Poppins";
-    src: url("./fonts/poppins-bold.woff2") format("woff2");
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-  }
-  
-  body {
-    font-family: "Poppins", sans-serif;
-    /* Rest of your styles */
-  }
-  
-  /* New section css */
-  
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./fonts/poppins.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./fonts/poppins-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  /* Rest of your styles */
+}
+
+
