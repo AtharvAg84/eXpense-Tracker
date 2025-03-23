@@ -12,8 +12,28 @@ app.use(express.static('public'));
 const users = [];
 const JWT_SECRET = 'your_jwt_secret';
 
+// Regex for basic validation
+const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+const nameRegex = /^[a-zA-Z\s]{2,50}$/; // Name should contain only letters and spaces, and be between 2-50 characters
+const phoneRegex = /^[0-9]{10}$/; // 10 digits
+
 app.post('/register', async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, name, phone } = req.body;
+
+  // Validate the email
+  if (!email || !emailRegex.test(email)) {
+    return res.status(400).json({ message: 'Invalid email format' });
+  }
+
+  // Validate the name
+  if (!name || !nameRegex.test(name)) {
+    return res.status(400).json({ message: 'Invalid name format. Name should contain only letters and spaces' });
+  }
+
+  // Validate the phone number
+  if (!phone || !phoneRegex.test(phone)) {
+    return res.status(400).json({ message: 'Invalid phone number. It should contain 10 digits' });
+  }
 
   // Check if user already exists
   const userExists = users.find(user => user.email === email);
@@ -25,7 +45,7 @@ app.post('/register', async (req, res) => {
   const hashedPassword = await bcrypt.hash(password, 10);
 
   // Store the user
-  users.push({ email, password: hashedPassword });
+  users.push({ email, name, phone, password: hashedPassword });
 
   res.status(201).json({ message: 'User registered successfully' });
 });
