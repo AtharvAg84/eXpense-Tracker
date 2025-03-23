@@ -40,6 +40,7 @@ Pages: -
 - Adding transactions should be container look into carefully.
 - dropdown should have more css.
 
+Added properly
 5)  Login activity,
 - for those, we want a back button, to go back directly. 
 
