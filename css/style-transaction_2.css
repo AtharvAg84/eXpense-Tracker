@@ -13,6 +13,8 @@ body {
     line-height: 1.6;
 }
 
+
+
 /* Container */
 .container_example {
     color: #333333; /* Text color */
@@ -232,3 +234,49 @@ button:disabled {
         grid-template-columns: 1fr;
     }
 }
+
+
+
+/* Footer Section */
+footer {
+    background: #142850;
+    color: #d3d3d3;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+  }
+  
+  .footer-left p {
+    margin: 0;
+  }
+  
+  .footer-right a {
+    color: #d3d3d3;
+    text-decoration: none;
+    margin-left: 15px;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-right a:hover {
+    color: #00aaff;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .header-content {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    form input {
+      width: 90%;
+    }
+  
+    .card {
+      width: 100%;
+      max-width: 320px;
+    }
+  }
+  
