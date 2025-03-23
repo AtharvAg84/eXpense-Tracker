@@ -24,6 +24,7 @@ Pages: -
  A only graphs page naming “Report” should be there, that will dynamically should the details, transaction history and all the things.
  Default expenses, and monthly expenses. 
 
+--> Done this PAGE
 3) Contact Us 
 - this page should have back button, go the main page button
 - if the details are not filled, then it should show, to fill in all the details.
