@@ -83,8 +83,142 @@
   .input-group {
     margin-bottom: 1.5rem;
     position: relative;
+    padding: 20px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--light-purple), var(--lighter-purple)); /* Gradient background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
   }
   
+  .input-group:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+    transform: translateY(-5px); /* Slight lifting effect */
+  }
+  
+  .input-group input,
+  .input-group textarea {
+    padding: 15px 20px;
+    font-size: 1.1em;
+    width: 100%;
+    border: 2px solid #e1e1e1;
+    border-radius: 8px;
+    outline: none;
+    background-color: #ffffff;
+    transition: all 0.3s ease-in-out;
+    box-sizing: border-box;
+  }
+  
+  .input-group input:focus,
+  .input-group textarea:focus {
+    border-color: var(--dark-purple); /* Dark purple border on focus */
+    background-color: #f7f7f7; /* Light background when focused */
+  }
+  
+  .input-group label {
+    position: absolute;
+    top: 12px;
+    left: 20px;
+    font-size: 1em;
+    color: var(--text-dark);
+    font-weight: 600;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+  }
+  
+  .input-group input:focus ~ label,
+  .input-group textarea:focus ~ label,
+  .input-group input:not(:placeholder-shown) ~ label,
+  .input-group textarea:not(:placeholder-shown) ~ label {
+    top: -10px;
+    left: 15px;
+    font-size: 0.9em;
+    color: var(--dark-purple); /* Change color to dark purple when active */
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+  
+  /* Input focus and shadow effects */
+  .input-group input:focus,
+  .input-group textarea:focus {
+    border-color: var(--lighter-purple);
+    box-shadow: 0 2px 10px rgba(154, 52, 157, 0.3); /* Light purple shadow on focus */
+  }
+  
+  /* Optional: Add an icon inside the input field */
+  .input-group .input-icon {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    color: var(--dark-purple);
+    font-size: 1.3em;
+    transition: all 0.3s ease;
+  }
+  
+
+  /* Custom select dropdown */
+.custom-select {
+  -webkit-appearance: none; /* Remove default styling in WebKit browsers */
+  -moz-appearance: none;    /* Remove default styling in Firefox */
+  appearance: none;         /* Remove default styling */
+  background: linear-gradient(135deg, var(--light-purple), var(--lighter-purple)); /* Gradient background */
+  border: 2px solid var(--lighter-purple); /* Subtle border with lighter purple */
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 1.1em;
+  color: var(--text-dark);
+  font-weight: 500;
+  width: 100%;
+  max-width: 300px;
+  outline: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-sizing: border-box;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+}
+
+.custom-select:hover {
+  border-color: var(--dark-purple); /* Change border color on hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Increase shadow on hover */
+}
+
+.custom-select:focus {
+  border-color: var(--dark-purple); /* Darker border on focus */
+  background-color: #f7f7f7; /* Light background color when focused */
+  box-shadow: 0 2px 10px rgba(154, 52, 157, 0.2); /* Light purple glow when focused */
+}
+
+.custom-select option {
+  background-color: #fff; /* White background for the options */
+  color: var(--text-dark); /* Text color for the options */
+  padding: 10px;
+  font-size: 1em;
+}
+
+.custom-select option:hover {
+  background-color: var(--lighter-purple); /* Hover effect on options */
+  color: #fff; /* White text when hovered */
+}
+
+/* Adding a custom arrow icon to the select box */
+.custom-select::after {
+  content: ' ▼'; /* Down arrow */
+  font-size: 1.2em;
+  color: var(--dark-purple);
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none; /* Prevents interference with clicking */
+}
+
+/* Optionally, add a focus effect for the label (if using a label with the select) */
+.custom-select:focus ~ label {
+  color: var(--dark-purple); /* Change label color when select is focused */
+}
+
+/* Drop down ends here. */
+
   .floating-input input {
     width: 100%;
     padding: 1rem;
@@ -142,7 +276,7 @@
   }
   
   .transactions-section {
-    padding: 2rem;
+    padding: 2rem;  
     grid-column: span 2;
   }
   

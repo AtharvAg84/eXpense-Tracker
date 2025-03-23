@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expense Tracker - Dashboard</title>
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style-transaction_1.css">
+    <link rel="stylesheet" href="/css/style-transaction_2.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
@@ -30,15 +30,15 @@
             <section class="input-section glassmorphism">
                 <form id="expenseForm" class="expense-form">
                     <div class="input-group floating-input">
-                        <input type="text" id="expenseName" required>
-                        <label for="expenseName">Wallet Name</label>
+                        <input type="text" id="expenseName" required style=color:black>
+                        <label for="expenseName" style=color:white>Wallet Name</label>
                     </div>
                     <div class="input-group floating-input">
-                        <input type="number" id="expenseAmount" step="0.01" required>
-                        <label for="expenseAmount">Amount</label>
+                        <input type="number" id="expenseAmount" step="100" required style=color:black>
+                        <label for="expenseAmount" style=color:white>Amount</label>
                     </div>
                     <div class="input-group">
-                        <select id="expenseCategory" class="custom-select">
+                        <select id="expenseCategory" class="custom-select" style="color: black;">
                             <option value="food">Food</option>
                             <option value="transport">Transport</option>
                             <option value="housing">Housing</option>
@@ -56,19 +56,19 @@
                 </form>
             </section>
 
-            <section class="chart-section glassmorphism">
-                <canvas id="expenseChart"></canvas>
-            </section>
-
             <section class="transactions-section glassmorphism">
                 <h2 class="section-title">Recent Transactions</h2>
                 <div class="transactions-list" id="transactionsList">
                     <!-- Transactions will be dynamically added here -->
                 </div>
             </section>
+            <section class="chart-section glassmorphism">
+                <canvas id="expenseChart"></canvas>
+            </section>
         </main>
     </div>
 
+    <hr style="border-radius: 10px; color: black;">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="app.js"></script>
 
