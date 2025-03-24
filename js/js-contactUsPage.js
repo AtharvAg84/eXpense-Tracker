@@ -70,6 +70,7 @@ document.querySelector('.app-form-button:nth-child(2)').addEventListener('click'
     if (validateForm()) {
         // If form is valid, you can proceed with form submission or other logic
         alert("Form submitted successfully!");
+        clearForm();
         // In a real scenario, you would submit the form here
     }
 });
