@@ -15,8 +15,9 @@ Pages: -
  Report button in the home page, (if user is logined, then only should this button) otherwise, display login first. This “Report Button” should go directly to the graphs, 
 
 2) Profile page 
+--> ASK THE user about income, salary, then income and slaary should be updated in the homwe page 
 - Edit profile should work, which will ask the user to put the default salary. 
-- Generate (csv) buttons should works.
+- Generate (csv) buttons should works. ///
 - navigation buttons in the profile page should work.
 - dynamic updates should be there.
  Savings and goals, in the same page.
@@ -24,6 +25,9 @@ Pages: -
  A only graphs page naming “Report” should be there, that will dynamically should the details, transaction history and all the things.
  Default expenses, and monthly expenses. 
 
+-> Side bar -- Remove dashboard, remove profile, "Setting" -> "Edit profile"
+-> edit profile should look like github hugg edit profile and those should display on the main profile page. 
+->  Updaye the spending summary list, all the types of items. 
 **Contact Page Done
 
 4) Transaction page
@@ -32,7 +36,9 @@ Pages: -
 - column structure should work there, that “daily”, custom
 - FONT color and over all theme,
 - Adding transactions should be container look into carefully.
-- dropdown should have more css.
+- dropdown should have more css. 
+
+-> MARGIN IN THE CHART PART
 
 Added properly
 5)  Login activity,
@@ -44,3 +50,7 @@ Added properly
 
 Subal:
 Profile: 10/3/25
+
+
+--> previous button arrow mark
+--> eXpernse tracker, logo and text, home page

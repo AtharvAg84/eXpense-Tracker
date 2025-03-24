@@ -1,39 +1,5 @@
-// For the above webpdage you created itself, Add more and more options like months, 
-
-// charts tracking, more types in expenses, add css to the options input selection also, 
-
-// Make the page more complex with more and more things
-
-    // const total = expenses.reduce((sum, expense) => sum + expense.amount, 0);
-    // totalSpentElement.textContent = `$${total.toFixed(2)}`;
-    // transactionCountElement.textContent = expenses.length;
-
-    // // Update the category values dynamically
-    // const categoryAmounts = {
-    //   "Food & Drinks": 0,
-    //   "Groceries": 0,
-    //   "Shopping": 0,
-    //   "Transport": 0,
-    //   "Entertainment": 0,
-    //   "Health & Fitness": 0,
-    //   "Home": 0,
-    //   "Utilities": 0,
-    // };
-
-    // expenses.forEach((expense) => {
-    //   if (categoryAmounts[expense.category] !== undefined) {
-    //     categoryAmounts[expense.category] += expense.amount;
-    //   }
-    // });
-
-    // // Loop through the categories and update the respective paragraph value
-    // document.querySelectorAll(".category_card_example").forEach((card) => {
-    //   const categoryName = card
-    //     .querySelector("h3")
-    //     .textContent.trim()
-    //     .slice(2)
-    //     .trim(); // Remove the emoji
-    //   const categoryAmount = categoryAmounts[categoryName];
-
-    //   card.querySelector("p").textContent = `$${categoryAmount.toFixed(2)}`;
-    // });
+Working on 
+-> 
+HTML 
+CSS
+JS : 
