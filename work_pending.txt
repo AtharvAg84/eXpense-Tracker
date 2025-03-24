@@ -14,7 +14,7 @@ Pages: -
 - Add more details to the home page, in the sections of home page
  Report button in the home page, (if user is logined, then only should this button) otherwise, display login first. This “Report Button” should go directly to the graphs, 
 
-2) Profile page 
+2) Profile page  + eDIT PROFILE 
 --> ASK THE user about income, salary, then income and slaary should be updated in the homwe page 
 - Edit profile should work, which will ask the user to put the default salary. 
 - Generate (csv) buttons should works. ///
@@ -29,6 +29,8 @@ Pages: -
 -> edit profile should look like github hugg edit profile and those should display on the main profile page. 
 ->  Updaye the spending summary list, all the types of items. 
 **Contact Page Done
+ 
+-->  ### dEFAUKLT PAYMENTS -  EDIT PROFILE PAGE
 
 4) Transaction page
 - separate the income and expense properly, and then generate.
