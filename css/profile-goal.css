@@ -1,0 +1,192 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f4f6f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    background: linear-gradient(90deg, #2c3e50, #34495e);
+    padding: 20px;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* Goal Form Section - Better Design */
+.goal-form {
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #3498db;
+}
+
+/* Form Inputs */
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input, .input-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+/* Submit Button */
+button {
+    background: #3498db;
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #2980b9;
+}
+
+/* Goals List & Details - 50% Each */
+.goal-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.goal-list, .goal-details {
+    flex: 1;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+/* Your Goals Section - Fixed Size with Scroll */
+.goal-list {
+    flex: 1;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    max-height: 400px;  /* Adjust height as needed */
+}
+
+/* Scrollbar for Goals */
+.goal-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.goal-list::-webkit-scrollbar-thumb {
+    background: #3498db;
+    border-radius: 4px;
+}
+
+.goal-list::-webkit-scrollbar-track {
+    background: #f0f0f0;
+}
+
+
+/* Goals Grid - Smaller Buttons */
+.grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Goal Buttons - Better Styling */
+.goal-card {
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: inline-block;
+    font-size: 14px;
+    min-width: 80px;
+}
+
+/* Hover Effect */
+.goal-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Progress Fill Effect */
+.goal-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0%;
+    background: rgba(255, 255, 255, 0.2);
+    z-index: 0;
+    transition: width 0.5s ease-in-out;
+}
+
+.goal-card.progress-0::before { width: 0%; }
+.goal-card.progress-25::before { width: 25%; }
+.goal-card.progress-50::before { width: 50%; }
+.goal-card.progress-75::before { width: 75%; }
+.goal-card.progress-100::before { width: 100%; }
+
+/* Tabs */
+.tabs {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.tab-button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: #ccc;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.tab-button.active {
+    background: #3498db;
+    color: white;
+}
+
+/* Active Tab Highlight */
+.details-content, .status-content {
+    display: none;
+}
+
+.details-content.active, .status-content.active {
+    display: block;
+}

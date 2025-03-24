@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savings Goals</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Savings Goal Tracker</h1>
+        </header>
+
+        <!-- Goal Input Section -->
+        <section class="goal-form">
+            <h2>Create a New Goal</h2>
+            <form id="goalForm">
+                <div class="input-group">
+                    <label for="goalName">Goal Name:</label>
+                    <input type="text" id="goalName" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="targetAmount">Target Amount ($):</label>
+                    <input type="number" id="targetAmount" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="timePeriod">Time Period:</label>
+                    <input type="number" id="timePeriod" required>
+                    <select id="timeUnit">
+                        <option value="months">Months</option>
+                        <option value="years">Years</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="paymentInterval">Payment Interval:</label>
+                    <select id="paymentInterval">
+                        <option value="weekly">Weekly</option>
+                        <option value="bi-weekly">Bi-Weekly</option>
+                        <option value="monthly">Monthly</option>
+                    </select>
+                </div>
+
+                <button type="submit">Add Goal</button>
+            </form>
+        </section>
+
+        <!-- Goals List & Details -->
+        <div class="goal-container">
+            <section class="goal-list">
+                <h2>Your Goals</h2>
+                <div id="goalGrid" class="grid-container"></div>
+            </section>
+
+            <section class="goal-details">
+                <div class="tabs">
+                    <button class="tab-button active" data-tab="details">Details</button>
+                    <button class="tab-button" data-tab="status">Payment Status</button>
+                </div>
+                <div id="goalDetails">
+                    <p>Select a goal to view details.</p>
+                </div>
+            </section>
+        </div>
+
+    </div>
+
+</body>
+</html>
