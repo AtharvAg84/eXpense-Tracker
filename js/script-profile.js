@@ -96,10 +96,12 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Save changes and update profile
-    saveButton.addEventListener("click", function () {
-        updateProfile();
-        closeModal();
-    });
+    saveButton.addEventListener("click", function (event) {
+      event.preventDefault();
+      updateProfile();
+      closeModal();
+  });
+  
 
     function updateProfile() {
         const profileDetails = {
