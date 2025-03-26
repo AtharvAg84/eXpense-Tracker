@@ -1,132 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Professional Profile Page</title>
-    <link rel="stylesheet" href="/css/style-profile.css">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
-
 <body>
 
-    <!-- Sidebar -->
-    <div class="sidebar collapsed">
-        <div class="sidebar-toggle" onclick="toggleSidebar()">☰</div>
-        <ul class="menu">
-            <li><a href="profile.html" class="icon">🏠 <span class="text">Dashboard</span></a></li>
-            <li><a href="#" class="icon">📜 <span class="text">Profile</span></a></li>
-            <li><a href="transaction.html" class="icon">📊 <span class="text">Transactions</span></a></li>
-            <li><a href="#" class="icon">⚙️ <span class="text">Settings</span></a></li>
-            <li class="logout"><a href="#" class="icon" onclick="logout()">🚪 <span class="text">Logout</span></a></li>
+<!-- Sidebar -->
+<div class="sidebar collapsed">
+    <div class="sidebar-toggle" onclick="toggleSidebar()">☰</div>
+    <ul class="menu">
+        <li><a href="#" class="icon">🏠 <span class="text">Dashboard</span></a></li>
+        <li><a href="#" class="icon">📜 <span class="text">Profile</span></a></li>
+        <li><a href="#" class="icon">📊 <span class="text">Expenses</span></a></li>
+        <li><a href="#" class="icon">⚙️ <span class="text">Settings</span></a></li>
+        <li class="logout"><a href="#" class="icon">🚪 <span class="text">Logout</span></a></li>
+    </ul>
+</div>
+
+<!-- Main Content -->
+<div class="main-content">
+    <header>
+        <div style="display: flex; align-items: center;">
+            <img src="budget.png" alt="ExpenseTracker Logo" style="height: 40px; margin-right: 10px;">
+            <h1 class="logo">eXpense Tracker</h1>
+        </div>
+        <div class="switch-container">
+            <span class="switch-label">Dark Mode</span>
+            <div class="switch" onclick="toggleDarkMode()"></div>
+        </div>
+    </header>
+    
+    <div class="profile-container">
+        <!-- Main Profile Card -->
+        <section class="profile-card">
+            <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
+            <h2 id="display-name">Alexander Grey</h2>
+            <p id="display-bio">Software Engineer | AI & Robotics Enthusiast</p>
+            <p id="display-location" class="hidden">📍 Location: </p>
+            <p id="display-email" class="hidden">📧 Email: </p>
+            <p id="display-phone" class="hidden">📞 Phone: </p>
+            <p id="display-dob" class="hidden">🎂 DOB: </p>
+            <p id="display-gender" class="hidden">🧑 Gender: </p>
+            <button class="edit-btn">Edit Profile</button>
+        </section>
+    
+        <!-- Account & Financial Details -->
+        <section class="profile-card">
+            <h2>Account & Financial Details</h2>
+            <p id="display-bank-name" class="hidden">🏦 Bank Name: </p>
+            <p id="display-account-type" class="hidden">💳 Account Type: </p>
+            <p id="display-upi-id" class="hidden">🔗 UPI ID: </p>
+            <p id="display-credit-limit" class="hidden">🏦 Credit Limit: </p>
+        </section>
+    </div>
+    
+    <!-- Online Presence (Moved outside .profile-container) -->
+    <section class="profile-card">
+        <h2>Online Presence</h2>
+        <p id="display-website" class="hidden">🌐 Website: </p>
+        <p id="display-social1" class="hidden">🔗 Social 1: </p>
+        <p id="display-social2" class="hidden">🔗 Social 2: </p>
+        <p id="display-social3" class="hidden">🔗 Social 3: </p>
+    </section>    
+    
+    <!-- Edit Profile Modal -->
+    <div class="edit-profile-modal">
+        <div class="modal-content">
+            <h2>Edit Profile</h2>
+            
+            <!-- Personal Information -->
+            <label>Name</label>
+            <input type="text" id="name" placeholder="Enter your name">
+            
+            <label for="username">Username</label>
+            <input type="text" id="username" placeholder="Enter your username">
+            
+            <label for="bio">Bio</label>
+            <textarea id="bio" placeholder="Tell something about yourself"></textarea>
+            
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter your email">
+            
+            <label for="phone">Phone</label>
+            <input type="text" id="phone" placeholder="Enter your phone number">
+            
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob">
+            
+            <label for="gender">Gender</label>
+            <select id="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+            
+            <label>Profile Picture</label>
+            <input type="file" id="profile-pic">
+            
+            <label>Location</label>
+            <input type="text" id="location" placeholder="Enter your location">
+            
+            <!-- Financial Information -->
+            <h3>Financial Details</h3>
+            <label>Monthly Income</label>
+            <input type="number" id="income" placeholder="Enter your monthly income">
+            
+            <label>Bank Name</label>
+            <input type="text" id="bank-name" placeholder="Enter your bank name">
+            
+            <label>Account Type</label>
+            <select id="account-type">
+                <option>Savings</option>
+                <option>Current</option>
+            </select>
+            
+            <label>UPI ID</label>
+            <input type="text" id="upi-id" placeholder="Enter your UPI ID">
+            
+            <label>Credit Limit</label>
+            <input type="number" id="credit-limit" placeholder="Enter credit limit (if any)">
+            
+            <!-- Expense & Goals -->
+            <h3>Expense & Savings Goals</h3>
+            <label>Monthly Budget</label>
+            <input type="number" id="budget" placeholder="Set your monthly budget">
+            
+            <label>Savings Goal</label>
+            <input type="number" id="savings-goal" placeholder="Set a savings goal">
+            
+            <label>Recurring Expenses</label>
+            <textarea id="recurring-expenses" placeholder="List recurring expenses"></textarea>
+            
+            <!-- Other Details -->
+            <h3>Other Details</h3>
+            
+            <label>Website</label>
+            <input type="text" id="website" placeholder="Enter your website">
+            
+            <label>Social Profiles</label>
+            <input type="text" id="social1" placeholder="Social Profile 1">
+            <input type="text" id="social2" placeholder="Social Profile 2">
+            <input type="text" id="social3" placeholder="Social Profile 3">
+            
+            <div class="modal-buttons">
+                <button class="save-btn">Save</button>
+                <button class="cancel-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+    
+    <section class="expenses">
+        <h2>Financial Overview</h2>
+        <div class="expense-grid">
+            <div class="expense-box">
+                <h3>Monthly Income</h3>
+                <p id="display-income" class="hidden">$8,000</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 80%;"></div>
+                </div>
+            </div>
+            <div class="expense-box">
+                <h3>Monthly Spending</h3>
+                <p>$5,500</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 55%;"></div>
+                </div>
+            </div>
+            <div class="expense-box">
+                <h3>Savings</h3>
+                <p>$2,500</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 25%;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="profile-spending-summary">
+        <h2>Spending Summary</h2>
+        <ul>
+            <li>🏡 Rent: <span>$1,200</span></li>
+            <li>🚗 Transport: <span>$300</span></li>
+            <li>🍔 Food: <span>$500</span></li>
+            <li>💳 Subscriptions: <span>$100</span></li>
         </ul>
     </div>
-
-    <!-- Main Content -->
-    <div class="main-content">
-        <header>
-            <div style="display: flex; align-items: center;">
-                <img src="/images/budget.png" alt="ExpenseTracker Logo" style="height: 40px; margin-right: 10px;">
-                <h1 class="logo">eXpense Tracker</h1>
+    
+    <div class="profile-actions">
+        <button class="profile-btn generate-report">📊 Generate Report</button>
+    </div>    
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Get to Know Us</h3>
+                <a href="#">About Us</a>
+                <a href="#">Careers</a>
+                <a href="#">Press Releases</a>
+                <a href="#">Our Mission</a>
             </div>
-            <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
-        </header>
 
-        <div class="profile-container">
-            <section class="profile-card">
-                <img src="/images/profile_icon.jpg" alt="Profile Picture" class="profile-pic">
-                <h2 id="profile-name">Loading...</h2>
-                <p id="profile-email">Loading...</p>
-                <button class="edit-btn">Edit Profile</button>
-            </section>
+            <div class="footer-section">
+                <h3>Connect with Us</h3>
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Features</h3>
+                <a href="#">Wallet Analytics</a>
+                <a href="#">Budget Planning</a>
+                <a href="#">Savings Calculator</a>
+                <a href="#">Secure Transactions</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Help & Support</h3>
+                <a href="#">Your Account</a>
+                <a href="#">FAQs</a>
+                <a href="#">Customer Support</a>
+                <a href="#">Privacy Policy</a>
+            </div>
         </div>
 
-        <section class="expenses">
-            <h2>Financial Overview</h2>
-            <div class="expense-grid">
-                <div class="expense-box">
-                    <h3>Monthly Income</h3>
-                    <p>$8,000</p>
-                    <div class="progress-bar">
-                        <div class="progress" style="width: 80%;"></div>
-                    </div>
-                </div>
-                <div class="expense-box">
-                    <h3>Monthly Spending</h3>
-                    <p>$5,500</p>
-                    <div class="progress-bar">
-                        <div class="progress" style="width: 55%;"></div>
-                    </div>
-                </div>
-                <div class="expense-box">
-                    <h3>Savings</h3>
-                    <p>$2,500</p>
-                    <div class="progress-bar">
-                        <div class="progress" style="width: 25%;"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <div class="profile-spending-summary">
-            <h2>Spending Summary</h2>
-            <ul>
-                <li>🏡 Rent: <span>$1,200</span></li>
-                <li>🚗 Transport: <span>$300</span></li>
-                <li>🍔 Food: <span>$500</span></li>
-                <li>💳 Subscriptions: <span>$100</span></li>
-            </ul>
+
+        <div class="footer-bottom">
+            <p>© 2025 eXpense Tracker. All Rights Reserved.</p>
+            <p>Designed by: Subal & Atharv</p>
         </div>
-
-        <div class="profile-actions">
-            <button class="profile-btn generate-report">📊 Generate Report</button>
-        </div>
-        <footer>
-            <div class="footer-container">
-                <div class="footer-section">
-                    <h3>Get to Know Us</h3>
-                    <a href="#">About Us</a>
-                    <a href="#">Careers</a>
-                    <a href="#">Press Releases</a>
-                    <a href="#">Our Mission</a>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Connect with Us</h3>
-                    <a href="#">Facebook</a>
-                    <a href="#">Twitter</a>
-                    <a href="#">Instagram</a>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Features</h3>
-                    <a href="#">Wallet Analytics</a>
-                    <a href="#">Budget Planning</a>
-                    <a href="#">Savings Calculator</a>
-                    <a href="#">Secure Transactions</a>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Help & Support</h3>
-                    <a href="#">Your Account</a>
-                    <a href="#">FAQs</a>
-                    <a href="#">Customer Support</a>
-                    <a href="#">Privacy Policy</a>
-                </div>
-            </div>
-
-
-
-            <div class="footer-bottom">
-                <p>© 2025 eXpense Tracker. All Rights Reserved.</p>
-                <p>Designed by: Subal & Atharv</p>
-            </div>
-        </footer>
-    </div>
-
-    <script defer src="js/script-profile.js"></script>
-    <!-- Subal Don't remove this -->
-    <script src="js/app-loginRegister.js"></script>
+    </footer>
+</div>
 </body>
-
 </html>
