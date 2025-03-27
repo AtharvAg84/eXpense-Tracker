@@ -88,11 +88,11 @@ header-eXpenseTracker p {
   filter: brightness(1.3);
 }
 
-.dropdown-eXpenseTracker {
+.dropdown {
   position: relative;
 }
 
-.dropdown-menu-eXpenseTracker {
+.dropdown-menu {
   position: absolute;
   top: 40px;
   right: 0;
@@ -106,7 +106,7 @@ header-eXpenseTracker p {
   min-width: 150px;
 }
 
-.dropdown-menu-eXpenseTracker a {
+.dropdown-menu a {
   text-decoration: none;
   color: #142850;
   padding: 12px;
@@ -115,11 +115,11 @@ header-eXpenseTracker p {
   transition: 0.2s ease-in-out;
 }
 
-.dropdown-menu-eXpenseTracker a:hover {
+.dropdown-menu a:hover {
   background: #f0f0f0;
 }
 
-.dropdown-eXpenseTracker.active .dropdown-menu-eXpenseTracker {
+.dropdown.active .dropdown-menu {
   display: flex;
 }
 
