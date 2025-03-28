@@ -1,7 +1,7 @@
 Subal:
-HTML-profile
-css-profile
-JS-profile
+HTML-profile-goal
+css-profile-goal
+JS-profile-goal
 
 
 ME
