@@ -132,7 +132,6 @@ document.addEventListener("DOMContentLoaded", function () {
           accountType: document.getElementById("account-type").value.trim(),
           upiId: document.getElementById("upi-id").value.trim(),
           creditLimit: document.getElementById("credit-limit").value.trim(),
-          website: document.getElementById("website").value.trim(),
           social1: document.getElementById("social1").value.trim(),
           social2: document.getElementById("social2").value.trim(),
           social3: document.getElementById("social3").value.trim(),
@@ -162,7 +161,6 @@ document.addEventListener("DOMContentLoaded", function () {
       updateField("display-account-type", profileDetails.accountType, "💳 Account Type: ");
       updateField("display-upi-id", profileDetails.upiId, "🔗 UPI ID: ");
       updateField("display-credit-limit", profileDetails.creditLimit, "🏦 Credit Limit: ");
-      updateField("display-website", profileDetails.website, "🌐 Website: ");
       updateField("display-social1", profileDetails.social1, "🔗 Social 1: ");
       updateField("display-social2", profileDetails.social2, "🔗 Social 2: ");
       updateField("display-social3", profileDetails.social3, "🔗 Social 3: ");
