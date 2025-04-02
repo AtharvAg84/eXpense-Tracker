@@ -10,6 +10,20 @@ document.addEventListener("DOMContentLoaded", () => {
   // Initialize Chart
   const ctx = document.getElementById("expenseChart").getContext("2d");
 
+  const dropdownToggle = document.querySelector(".dropdown-toggle");
+  const dropdownMenu = document.querySelector(".dropdown-menu");
+
+  dropdownToggle.addEventListener("click", function (event) {
+    event.stopPropagation();
+    dropdownMenu.style.display =
+      dropdownMenu.style.display === "block" ? "none" : "block";
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener("click", function () {
+    dropdownMenu.style.display = "none";
+  });
+
   // Form Submission
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -181,7 +195,6 @@ document.addEventListener("DOMContentLoaded", () => {
       },
     });
   }
-  
 
   // Helper Functions
   function updateLocalStorage() {

@@ -90,39 +90,36 @@ header-eXpenseTracker p {
 
 .dropdown {
   position: relative;
+  display: inline-block;
+  cursor: pointer;
 }
 
 .dropdown-menu {
-  position: absolute;
-  top: 40px;
-  right: 0;
-  background: white;
-  color: #333;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   display: none;
-  flex-direction: column;
-  padding: 10px;
+  position: absolute;
+  left: -100px;  /* Aligns the dropdown menu to the left of the parent */
+  top: 100%; /* Positions the menu below the button */
+  background-color: white;
   min-width: 150px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
 }
 
 .dropdown-menu a {
-  text-decoration: none;
-  color: #142850;
-  padding: 12px;
-  border-radius: 5px;
   display: block;
-  transition: 0.2s ease-in-out;
+  padding: 10px;
+  color: black;
+  text-decoration: none;
 }
 
 .dropdown-menu a:hover {
-  background: #f0f0f0;
+  background-color: #f1f1f1;
 }
 
-.dropdown.active .dropdown-menu {
-  display: flex;
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-menu {
+  display: block;
 }
-
 
 .header {
   display: flex;
