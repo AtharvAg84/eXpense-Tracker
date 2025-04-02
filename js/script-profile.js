@@ -121,8 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function updateProfile() {
       const profileDetails = {
           name: document.getElementById("name").value.trim(),
-          bio: document.getElementById("bio").value.trim(),
-          email: document.getElementById("email").value.trim(),
+          // bio: document.getElementById("bio").value.trim(),
           phone: document.getElementById("phone").value.trim(),
           dob: document.getElementById("dob").value.trim(),
           gender: document.getElementById("gender").value.trim(),
@@ -150,9 +149,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Updating Profile Details (Ensuring Prefix Stays & Hiding Empty Fields)
       updateField("display-name", profileDetails.name, "👤 Name: ");
-      updateField("display-bio", profileDetails.bio, "📝 Bio: ");
+      // updateField("display-bio", profileDetails.bio, "📝 Bio: ");
       updateField("display-location", profileDetails.location, "📍 Location: ");
-      updateField("display-email", profileDetails.email, "📧 Email: ");
       updateField("display-phone", profileDetails.phone, "📞 Phone: ");
       updateField("display-dob", profileDetails.dob, "🎂 DOB: ");
       updateField("display-gender", profileDetails.gender, "🧑 Gender: ");

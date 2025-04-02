@@ -56,3 +56,24 @@ Profile: 10/3/25
 
 --> previous button arrow mark
 --> eXpernse tracker, logo and text, home page
+
+
+
+
+
+-- Suggested Minor things
+Remove lanaguage and other things, 
+Vlaidation adn resiger page, astrik, validation, and the wlaignment of the input box, 
+
+Trasnaction page, buttom part. 
+privacy page, navigation
+top features change
+
+"gallery" on the transaction page was not working properly.
+edit profile - local storgae, to get same for every time when same uiser comes,
+
+
+register valid email, sir asking
+
+
+transactions also in ocal storgage and get accringly to the user
