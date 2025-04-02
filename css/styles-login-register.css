@@ -172,7 +172,7 @@ label {
 
 input {
   padding: 15px; 
-  padding-left: 100px;/* Increased padding */
+  width: 360px;
   margin-top: 10px; /* Increased margin */
   border: 2px solid var(--lighter-purple); /* Increased border width */
   border-radius: 6px; /* Increased border radius */
@@ -183,6 +183,17 @@ input {
 input:focus {
   border-color: var(--dark-purple);
   outline: none;
+}
+
+.error {
+  color: red;
+  font-size: 0.9em;
+  display: block; /* Ensures errors appear below the input */
+  margin-top: 3px;
+}
+input {
+  display: block;
+  margin-bottom: 10px;
 }
 
 button {

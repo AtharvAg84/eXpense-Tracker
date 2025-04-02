@@ -99,3 +99,45 @@ function logout() {
   alert('You have been logged out.');
   window.location.href = 'login.html';
 }
+
+// Validate form inputs
+function validateEmail() {
+  let email = document.getElementById("register-email").value;
+  let errorSpan = document.getElementById("email-error");
+  let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+  if (email === "") {
+      errorSpan.textContent = "";
+  } else if (!emailPattern.test(email)) {
+      errorSpan.textContent = "Invalid email format!";
+  } else {
+      errorSpan.textContent = "";
+  }
+}
+
+function validateContact() {
+  let contact = document.getElementById("register-contact").value;
+  let errorSpan = document.getElementById("contact-error");
+
+  if (contact === "") {
+      errorSpan.textContent = "";
+  } else if (!/^\d{10}$/.test(contact)) {
+      errorSpan.textContent = "Contact number must be 10 digits!";
+  } else {
+      errorSpan.textContent = "";
+  }
+}
+
+function validatePassword() {
+  let password = document.getElementById("register-password").value;
+  let confirmPassword = document.getElementById("register-confirm-password").value;
+  let errorSpan = document.getElementById("password-error");
+
+  if (confirmPassword === "") {
+      errorSpan.textContent = "";
+  } else if (password !== confirmPassword) {
+      errorSpan.textContent = "Passwords do not match!";
+  } else {
+      errorSpan.textContent = "";
+  }
+}
