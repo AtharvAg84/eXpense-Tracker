@@ -196,6 +196,12 @@ input {
   margin-bottom: 10px;
 }
 
+#field-required{
+  color: red;
+  font-size: 0.9em;
+  margin-top: 3px;
+}
+
 button {
   margin-top: 30px; /* Increased margin */
   padding: 15px; /* Increased padding */

@@ -56,23 +56,23 @@
     <div class="container">
         <h2>Register</h2>
         <form id="register-form" onsubmit="return validateForm()">
-            <label for="register-name">Full Name:</label>
+            <label for="register-name">Full Name:<span id="field-required">*</span></label>
             <input type="text" id="register-name" name="name" required>
 
-            <label for="register-email">Email:</label>
+            <label for="register-email">Email:<span id="field-required">*</span></label>
             <input type="email" id="register-email" name="email" required 
                 oninput="validateEmail()" onblur="validateEmail()">
             <span id="email-error" class="error"></span>
 
-            <label for="register-contact">Contact Number:</label>
+            <label for="register-contact">Contact Number:<span id="field-required">*</span></label>
             <input type="number" id="register-contact" name="contact" required 
                 oninput="validateContact()" onblur="validateContact()">
             <span id="contact-error" class="error"></span>
 
-            <label for="register-password">Password:</label>
+            <label for="register-password">Password:<span id="field-required">*</span></label>
             <input type="password" id="register-password" name="password" required>
 
-            <label for="register-confirm-password">Confirm Password:</label>
+            <label for="register-confirm-password">Confirm Password:<span id="field-required">*</span></label>
             <input type="password" id="register-confirm-password" name="confirm-password" required 
                 oninput="validatePassword()" onblur="validatePassword()">
             <span id="password-error" class="error"></span>
