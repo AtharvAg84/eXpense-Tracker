@@ -220,3 +220,104 @@ document.addEventListener("DOMContentLoaded", () => {
   // Initial UI Update
   updateUI();
 });
+
+// Tab switching logic
+function showTab(id) {
+    const tabs = document.querySelectorAll('.tab');
+    const sections = document.querySelectorAll('.expenses_list');
+
+    tabs.forEach(tab => tab.classList.remove('active'));
+    sections.forEach(section => section.style.display = 'none');
+
+    document.querySelector(`.tab[onclick="showTab('${id}')"]`).classList.add('active');
+    document.getElementById(id).style.display = 'block';
+}
+
+// Show/hide modal
+function toggleExpenseForm(show) {
+    const modal = document.getElementById('addExpenseForm');
+    modal.style.display = show ? 'flex' : 'none';
+
+    if (show) {
+        // Reset form
+        document.getElementById('expenseName').value = '';
+        document.getElementById('expenseAmount').value = '';
+        document.getElementById('expenseDate').value = new Date().toISOString().split('T')[0];
+        document.getElementById('expenseType').value = '';
+    }
+}
+
+// Add expense to the selected section
+function addExpense() {
+  const name = document.getElementById('expenseName').value.trim();
+  const amountInput = parseFloat(document.getElementById('addexpenseAmount').value.replace(/[^0-9.]/g, '')).toFixed(2);
+  const date = document.getElementById('expenseDate').value;
+  const type = document.getElementById('expenseType').value;
+  
+  console.log("Name:", name);
+  console.log("Amount:", amountInput);
+  console.log("Date:", date);
+  console.log("Type:", type);
+
+    // if (!name || !amountInput || !date || !type) {
+    //     alert("Please fill all details.");
+    //     return;
+    // }
+
+    const amount = parseFloat(amountInput);
+    if (isNaN(amount)) {
+        alert("Invalid amount entered.");
+        return;
+    }
+
+    const section = document.getElementById(type);
+    section.style.display = 'block';
+
+    // Remove 'Nothing yet 👀' if it exists
+    const msg = section.querySelector('.no-expense-msg');
+    if (msg) msg.remove();
+
+    // Check for existing group
+    let group = section.querySelector(`.expenses_group[data-date="${date}"]`);
+    if (!group) {
+        group = document.createElement('div');
+        group.className = 'expenses_group';
+        group.setAttribute('data-date', date);
+        group.innerHTML = `
+            <div class="group_header">
+                <strong>${new Date(date).toDateString()}</strong>
+            </div>
+            <ul></ul>
+        `;
+        section.appendChild(group);
+    }
+
+    const ul = group.querySelector('ul');
+    const li = document.createElement('li');
+    li.innerHTML = `
+        ${name} <span>$${amount.toFixed(2)}</span> 
+        <span class="edit-btn" onclick="editExpense(this)">✎</span>
+    `;
+    ul.appendChild(li);
+
+    toggleExpenseForm(false);
+}
+
+// Edit existing expense
+function editExpense(el) {
+    const li = el.parentElement;
+    const [namePart, amountPart] = li.textContent.replace('✎', '').trim().split('$');
+    
+    document.getElementById('expenseName').value = namePart.trim();
+    document.getElementById('expenseAmount').value = parseFloat(amountPart).toFixed(2);
+    document.getElementById('expenseDate').value = new Date().toISOString().split('T')[0];
+    
+    // You can also autofill the type if desired
+    toggleExpenseForm(true);
+    li.remove(); // Remove old, will re-add on submit
+}
+
+// Default show first tab
+document.addEventListener("DOMContentLoaded", () => {
+    showTab('daily');
+});

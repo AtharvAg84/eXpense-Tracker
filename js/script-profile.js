@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function updateProfile() {
       const profileDetails = {
-          name: document.getElementById("name").value.trim(),
+          // name: document.getElementById("name").value.trim(),
           // bio: document.getElementById("bio").value.trim(),
           phone: document.getElementById("phone").value.trim(),
           dob: document.getElementById("dob").value.trim(),
@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       // Updating Profile Details (Ensuring Prefix Stays & Hiding Empty Fields)
-      updateField("display-name", profileDetails.name, "👤 Name: ");
+      // updateField("display-name", profileDetails.name, "👤 Name: ");
       // updateField("display-bio", profileDetails.bio, "📝 Bio: ");
       updateField("display-location", profileDetails.location, "📍 Location: ");
       updateField("display-phone", profileDetails.phone, "📞 Phone: ");
@@ -184,6 +184,30 @@ document.addEventListener("DOMContentLoaded", function () {
       document.querySelector(".profile-pic").src = storedProfilePic;
   }
 });
+
+function addTransaction(category, amount, note = '', date = new Date().toISOString().split('T')[0]) {
+  const currentUserEmail = localStorage.getItem('currentUser');
+  if (!currentUserEmail) return;
+
+  const userData = JSON.parse(localStorage.getItem(currentUserEmail)) || {};
+
+  // Initialize transactions array if not present
+  userData.transactions = userData.transactions || [];
+
+  // Add the new transaction
+  const newTransaction = { category, amount: parseFloat(amount), note, date };
+  userData.transactions.push(newTransaction);
+
+  // Initialize spending summary if not present
+  if (!userData.spendingSummary) userData.spendingSummary = {};
+
+  // Update the category-wise spending summary
+  userData.spendingSummary[category] = 
+    (parseFloat(userData.spendingSummary[category]) || 0) + parseFloat(amount);
+
+  // Save updated user data
+  localStorage.setItem(currentUserEmail, JSON.stringify(userData));
+}
 
 // ====================
 // Generate Report (Optional Feature)

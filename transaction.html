@@ -25,7 +25,7 @@
                 <p>Your personal tool for eXpense management</p>
             </div>
             <div class="header-right-eXpenseTracker">
-                <a href="#language" title="Change Language">
+                <!-- <a href="#language" title="Change Language">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white"
                         class="bi bi-translate-eXpenseTracker" viewBox="0 0 16 16">
                         <path
@@ -33,15 +33,15 @@
                         <path
                             d="M0 2a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v3h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-3H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zm7.138 9.995q.289.451.63.846c-.748.575-1.673 1.001-2.768 1.292.178.217.451.635.555.867 1.125-.359 2.08-.844 2.886-1.494.777.665 1.739 1.165 2.93 1.472.133-.254.414-.673.629-.89-1.125-.253-2.057-.694-2.82-1.284.681-.747 1.222-1.651 1.621-2.757H14V8h-3v1.047h.765c-.318.844-.74 1.546-1.272 2.13a6 6 0 0 1-.415-.492 2 2 0 0 1-.94.31" />
                     </svg>
-                </a>
-                <a href="#login" title="Login">
+                </a> -->
+                <!-- <a href="#login" title="Login">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white"
                         class="bi bi-person-badge-eXpenseTracker" viewBox="0 0 16 16">
                         <path d="M6.5 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1zM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
                         <path
                             d="M4.5 0A2.5 2.5 0 0 0 2 2.5V14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2.5A2.5 2.5 0 0 0 11.5 0zM3 2.5A1.5 1.5 0 0 1 4.5 1h7A1.5 1.5 0 0 1 13 2.5v10.795a4.2 4.2 0 0 0-.776-.492C11.392 12.387 10.063 12 8 12s-3.392.387-4.224.803a4.2 4.2 0 0 0-.776.492z" />
                     </svg>
-                </a>
+                </a> -->
                 <div class="dropdown">
                     <svg class="dropdown-toggle" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white"
                         class="bi bi-list" viewBox="0 0 16 16">
@@ -178,35 +178,70 @@
 
 
         <!-- Expenses Section -->
-        <section class="expenses_section_example">
-            <h2 style="color: rgb(255, 1, 128);">Expenses</h2>
-            <div class="tabs_example">
-                <button class="tab_example active">Daily</button>
-                <button class="tab_example">Monthly</button>
-                <button class="tab_example">Calendar</button>
-                <button class="tab_example">History</button>
+        <section class="expenses_section">
+            <div class="expenses_header">
+                <h2>Recurring Expenses</h2>
+                <button class="add-expense-btn" onclick="toggleExpenseForm(true)">+ Add Expense</button>
             </div>
-            <div class="expenses_list_example">
-                <div class="expenses_group_example">
-                    <div class="group_header_example">
-                        <span>▼ Oct 17, 2024</span>
-                        <span>2</span>
+        
+            <div class="tabs">
+                <button class="tab active" onclick="showTab('daily')">Daily</button>
+                <button class="tab" onclick="showTab('weekly')">Weekly</button>
+                <button class="tab" onclick="showTab('monthly')">Monthly</button>
+                <button class="tab" onclick="showTab('yearly')">Yearly</button>
+                <!-- <button class="tab" onclick="showTab('calendar')">Calendar</button> -->
+                <button class="tab" onclick="showTab('history')">History</button>
+            </div>
+        
+            <div class="expenses_list" id="daily">
+                <div class="no-expense-msg">Nothing yet 👀</div>
+            </div>
+            <div class="expenses_list" id="weekly">
+                <div class="no-expense-msg">Nothing yet 👀</div>
+            </div>
+            <div class="expenses_list" id="monthly">
+                <div class="no-expense-msg">Nothing yet 👀</div>
+            </div>
+            <div class="expenses_list" id="yearly">
+                <div class="no-expense-msg">Nothing yet 👀</div>
+            </div>
+            <!-- <div class="expenses_list" id="calendar">
+                <div class="no-expense-msg">Nothing yet 👀</div>
+            </div> -->
+            <div class="expenses_list" id="history">
+                <div class="no-expense-msg">Nothing yet 👀</div>
+            </div>
+        
+            <!-- MODAL -->
+            <div class="expense-modal" id="addExpenseForm">
+                <div class="modal-content">
+                    <h3>Add Expense</h3>
+                    <label>Expense Name:</label>
+                    <input type="text" id="expenseName" placeholder="e.g., Electricity Bill">
+        
+                    <label>Amount ($):</label>
+                    <input type="number" id="addexpenseAmount" placeholder="e.g., 100">
+        
+                    <label>Start Date:</label>
+                    <input type="date" id="expenseDate">
+        
+                    <select id="expenseType" required>
+                        <option value="">-- Select Type --</option>
+                        <option value="daily">Daily</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="monthly">Monthly</option>
+                        <option value="yearly">Yearly</option>
+                      </select>
+                      
+        
+                    <div class="modal-buttons">
+                        <button onclick="addExpense()">Submit</button>
+                        <button onclick="toggleExpenseForm(false)">Cancel</button>
                     </div>
-                    <ul>
-                        <li>💡 Electricity Bill <span>$120.00</span></li>
-                        <li>🏠 Rent Payment <span>$100.00</span></li>
-                    </ul>
                 </div>
-                <div class="expenses_group_example">
-                    <div class="group_header_example">
-                        <span>▼ Oct 18, 2024</span>
-                        <span>2</span>
-                    </div>
-                    <ul>
-                        <li>🍴 Lunch Out with Friends <span>$20.00</span></li>
-                        <li>🛒 Weekly Grocery Shopping <span>$60.00</span></li>
-                    </ul>
-                </div>
+            </div>
+        </section>
+        
             </div>
         </section>
     </div>
