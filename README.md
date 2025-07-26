@@ -19,7 +19,7 @@ eXpense-Tracker is a web-based application designed to help users manage and tra
 
 - `app.js` - Main backend logic (if applicable)
 - `login.html`, `register.html` - User authentication pages
-- `main.html`, `main-after-login.html` - Main dashboard and post-login interface
+- `index.html`, `main-after-login.html` - Main dashboard and post-login interface
 - `transaction.html` - Manage and view transactions
 - `profile.html`, `profile-goal.html` - User profile and goal management
 - `contactUs.html` - Contact support page
@@ -37,7 +37,7 @@ eXpense-Tracker is a web-based application designed to help users manage and tra
 2. **Open the project folder:**
    Open the folder in your preferred code editor (e.g., VS Code).
 3. **Run the application:**
-   - Open `main.html` or `login.html` in your browser to start using the app.
+   - Open `index.html` or `login.html` in your browser to start using the app.
    - If backend functionality is implemented in `app.js`, ensure you have Node.js installed and run:
      ```
      node app.js
