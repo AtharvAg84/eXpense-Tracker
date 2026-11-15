@@ -62,6 +62,7 @@ function clearForm() {
     document.querySelector('input[placeholder="EMAIL"]').value = "";
     document.querySelector('input[placeholder="CONTACT NO"]').value = "";
     document.querySelector('input[placeholder="MESSAGE"]').value = "";
+    clearErrors();
 }
 
 // Add event listener to the Send button for form validation

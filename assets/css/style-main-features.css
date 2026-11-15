@@ -13,7 +13,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 #extracted-header {
-  background-image: url(/images/Background.jpg); /* Add your background image here */
+  background-image: url(../images/background.jpg);
   background-size: cover;
   background-position: center;
   min-height: 50vh; /* Sets a minimum height relative to the viewport */
@@ -46,7 +46,8 @@ body {
   background-color: #f8facd;
 }
 
-#extracted-activities-header {
+#extracted-activities-header,
+#developers-heading {
   font-size: 2rem;
   font-weight: bold;
   color: #333;

@@ -492,25 +492,7 @@ header-eXpenseTracker p {
   }
 }
 
-@font-face {
-  font-family: "Poppins";
-  src: url("./fonts/poppins.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Poppins";
-  src: url("./fonts/poppins-bold.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
 body {
   font-family: "Poppins", sans-serif;
-  /* Rest of your styles */
 }
-
 

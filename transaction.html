@@ -5,19 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expense Tracker - Dashboard</title>
-    <link rel="stylesheet" href="/css/style-transaction_1.css">
-    <link rel="stylesheet" href="/css/style-transaction_2.css">
+    <link rel="stylesheet" href="assets/css/style-transaction.css">
+    <link rel="stylesheet" href="assets/css/style-transaction-recurring.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <header-eXpenseTracker> 
+    <header-eXpenseTracker>
         <div class="header-content-eXpenseTracker" id="top">
             <div class="header-left-eXpenseTracker">
                 <div style="display: flex; align-items: center;">
                     <a href="main-after-login.html"
                         style="display: flex; align-items: center; text-decoration: none; color: inherit;">
-                        <img src="/images/budget.png" alt="ExpenseTracker Logo"
+                        <img src="assets/images/budget.png" alt="ExpenseTracker Logo"
                             style="height: 40px; margin-right: 10px;">
                         <h1>eXpense Tracker</h1>
                     </a>
@@ -83,7 +83,7 @@
                         <label for="expenseName" style=color:white>Wallet Name</label>
                     </div>
                     <div class="input-group floating-input">
-                        <input type="number" id="expenseAmount" step="100" required style=color:black>
+                        <input type="number" id="expenseAmount" min="0.01" step="0.01" required style=color:black>
                         <label for="expenseAmount" style=color:white>Amount</label>
                     </div>
                     <div class="input-group">
@@ -183,7 +183,7 @@
                 <h2>Recurring Expenses</h2>
                 <button class="add-expense-btn" onclick="toggleExpenseForm(true)">+ Add Expense</button>
             </div>
-        
+
             <div class="tabs">
                 <button class="tab active" onclick="showTab('daily')">Daily</button>
                 <button class="tab" onclick="showTab('weekly')">Weekly</button>
@@ -192,7 +192,7 @@
                 <!-- <button class="tab" onclick="showTab('calendar')">Calendar</button> -->
                 <button class="tab" onclick="showTab('history')">History</button>
             </div>
-        
+
             <div class="expenses_list" id="daily">
                 <div class="no-expense-msg">Nothing yet 👀</div>
             </div>
@@ -211,29 +211,30 @@
             <div class="expenses_list" id="history">
                 <div class="no-expense-msg">Nothing yet 👀</div>
             </div>
-        
+
             <!-- MODAL -->
             <div class="expense-modal" id="addExpenseForm">
                 <div class="modal-content">
                     <h3>Add Expense</h3>
-                    <label>Expense Name:</label>
-                    <input type="text" id="expenseName" placeholder="e.g., Electricity Bill">
-        
-                    <label>Amount ($):</label>
-                    <input type="number" id="addexpenseAmount" placeholder="e.g., 100">
-        
-                    <label>Start Date:</label>
-                    <input type="date" id="expenseDate">
-        
-                    <select id="expenseType" required>
+                    <label for="recurringExpenseName">Expense Name:</label>
+                    <input type="text" id="recurringExpenseName" placeholder="e.g., Electricity Bill" required>
+
+                    <label for="recurringExpenseAmount">Amount ($):</label>
+                    <input type="number" id="recurringExpenseAmount" placeholder="e.g., 100" min="0.01" step="0.01"
+                        required>
+
+                    <label for="recurringExpenseDate">Start Date:</label>
+                    <input type="date" id="recurringExpenseDate" required>
+
+                    <select id="recurringExpenseType" required>
                         <option value="">-- Select Type --</option>
                         <option value="daily">Daily</option>
                         <option value="weekly">Weekly</option>
                         <option value="monthly">Monthly</option>
                         <option value="yearly">Yearly</option>
-                      </select>
-                      
-        
+                    </select>
+
+
                     <div class="modal-buttons">
                         <button onclick="addExpense()">Submit</button>
                         <button onclick="toggleExpenseForm(false)">Cancel</button>
@@ -241,17 +242,17 @@
                 </div>
             </div>
         </section>
-        
-            </div>
-        </section>
+
+    </div>
+    </section>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="app.js"></script>
+    <script src="assets/js/app.js"></script>
 
     <hr>
     <footer>
         <div class="footer-left">
-            <p style="color: white;">&copy; 2025 eXpense Tracker. All rights reserved.</p>
+            <p style="color: white;">&copy; 2027 eXpense Tracker. All rights reserved.</p>
         </div>
         <div class="footer-right">
             <a href="pp.html">Privacy Policy</a>

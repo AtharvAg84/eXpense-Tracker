@@ -4,17 +4,26 @@
 document.addEventListener('DOMContentLoaded', function () {
   const registerForm = document.getElementById('register-form');
   if (registerForm) {
+    const emailInput = document.getElementById('register-email');
+    const contactInput = document.getElementById('register-contact');
+    const passwordInput = document.getElementById('register-password');
+    const confirmPasswordInput = document.getElementById('register-confirm-password');
+    emailInput.addEventListener('input', validateEmail);
+    contactInput.addEventListener('input', validateContact);
+    contactInput.addEventListener('blur', validateContact);
+    confirmPasswordInput.addEventListener('input', validatePassword);
+    confirmPasswordInput.addEventListener('blur', validatePassword);
+
     registerForm.addEventListener('submit', function (event) {
       event.preventDefault();
 
       const name = document.getElementById('register-name').value;
-      const email = document.getElementById('register-email').value;
-      const contact = document.getElementById('register-contact').value;
-      const password = document.getElementById('register-password').value;
-      const confirmPassword = document.getElementById('register-confirm-password').value;
+      const email = emailInput.value.trim();
+      const contact = contactInput.value.trim();
+      const password = passwordInput.value;
+      const confirmPassword = confirmPasswordInput.value;
 
-      if (password !== confirmPassword) {
-        alert('Passwords do not match. Please try again.');
+      if (!registerForm.reportValidity() || !validateEmail() || !validateContact() || !validatePassword()) {
         return;
       }
 
@@ -44,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
     loginForm.addEventListener('submit', function (event) {
       event.preventDefault();
 
-      const email = document.getElementById('login-email').value;
+      const email = document.getElementById('login-email').value.trim();
       const password = document.getElementById('login-password').value;
 
       // Check if user exists in localStorage
@@ -102,42 +111,26 @@ function logout() {
 
 // Validate form inputs
 function validateEmail() {
-  let email = document.getElementById("register-email").value;
-  let errorSpan = document.getElementById("email-error");
-  let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
-  if (email === "") {
-      errorSpan.textContent = "";
-  } else if (!emailPattern.test(email)) {
-      errorSpan.textContent = "Invalid email format!";
-  } else {
-      errorSpan.textContent = "";
-  }
+  const email = document.getElementById("register-email");
+  const errorSpan = document.getElementById("email-error");
+  const valid = email.value === "" || /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email.value);
+  errorSpan.textContent = valid || email.value === "" ? "" : "Invalid email format!";
+  return valid && email.value !== "";
 }
 
 function validateContact() {
-  let contact = document.getElementById("register-contact").value;
-  let errorSpan = document.getElementById("contact-error");
-
-  if (contact === "") {
-      errorSpan.textContent = "";
-  } else if (!/^\d{10}$/.test(contact)) {
-      errorSpan.textContent = "Contact number must be 10 digits!";
-  } else {
-      errorSpan.textContent = "";
-  }
+  const contact = document.getElementById("register-contact");
+  const errorSpan = document.getElementById("contact-error");
+  const valid = /^\d{10}$/.test(contact.value);
+  errorSpan.textContent = contact.value === "" || valid ? "" : "Contact number must be 10 digits!";
+  return valid;
 }
 
 function validatePassword() {
-  let password = document.getElementById("register-password").value;
-  let confirmPassword = document.getElementById("register-confirm-password").value;
-  let errorSpan = document.getElementById("password-error");
-
-  if (confirmPassword === "") {
-      errorSpan.textContent = "";
-  } else if (password !== confirmPassword) {
-      errorSpan.textContent = "Passwords do not match!";
-  } else {
-      errorSpan.textContent = "";
-  }
+  const password = document.getElementById("register-password").value;
+  const confirmPassword = document.getElementById("register-confirm-password").value;
+  const errorSpan = document.getElementById("password-error");
+  const valid = confirmPassword !== "" && password === confirmPassword;
+  errorSpan.textContent = confirmPassword === "" || valid ? "" : "Passwords do not match!";
+  return valid;
 }

@@ -8,21 +8,23 @@ document.addEventListener("DOMContentLoaded", () => {
   const transactionCountElement = document.querySelectorAll(".stat-value")[1];
 
   // Initialize Chart
-  const ctx = document.getElementById("expenseChart").getContext("2d");
+  const chartCanvas = document.getElementById("expenseChart");
+  const ctx = chartCanvas ? chartCanvas.getContext("2d") : null;
 
   const dropdownToggle = document.querySelector(".dropdown-toggle");
   const dropdownMenu = document.querySelector(".dropdown-menu");
 
-  dropdownToggle.addEventListener("click", function (event) {
-    event.stopPropagation();
-    dropdownMenu.style.display =
-      dropdownMenu.style.display === "block" ? "none" : "block";
-  });
+  if (dropdownToggle && dropdownMenu) {
+    dropdownToggle.addEventListener("click", function (event) {
+      event.stopPropagation();
+      dropdownMenu.style.display =
+        dropdownMenu.style.display === "block" ? "none" : "block";
+    });
 
-  // Close dropdown when clicking outside
-  document.addEventListener("click", function () {
-    dropdownMenu.style.display = "none";
-  });
+    document.addEventListener("click", function () {
+      dropdownMenu.style.display = "none";
+    });
+  }
 
   // Form Submission
   form.addEventListener("submit", (e) => {
@@ -33,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
     );
     const expenseCategory = document.getElementById("expenseCategory").value;
 
-    if (!expenseName || !expenseAmount) {
+    if (!expenseName || !Number.isFinite(expenseAmount) || expenseAmount <= 0 || !expenseCategory) {
       showErrorToast("Please fill in all fields");
       return;
     }
@@ -145,6 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Update Chart
   function updateChart() {
+    if (!ctx || !window.Chart) return;
     if (chartInstance) chartInstance.destroy();
 
     const categories = [
@@ -221,6 +224,8 @@ document.addEventListener("DOMContentLoaded", () => {
   updateUI();
 });
 
+let editingRecurringExpense = null;
+
 // Tab switching logic
 function showTab(id) {
     const tabs = document.querySelectorAll('.tab');
@@ -229,48 +234,58 @@ function showTab(id) {
     tabs.forEach(tab => tab.classList.remove('active'));
     sections.forEach(section => section.style.display = 'none');
 
-    document.querySelector(`.tab[onclick="showTab('${id}')"]`).classList.add('active');
-    document.getElementById(id).style.display = 'block';
+    const activeTab = document.querySelector(`.tab[onclick="showTab('${id}')"]`);
+    const activeSection = document.getElementById(id);
+    if (activeTab && activeSection) {
+        activeTab.classList.add('active');
+        activeSection.style.display = 'block';
+    }
 }
 
 // Show/hide modal
 function toggleExpenseForm(show) {
     const modal = document.getElementById('addExpenseForm');
+    if (!modal) return;
     modal.style.display = show ? 'flex' : 'none';
 
     if (show) {
-        // Reset form
-        document.getElementById('expenseName').value = '';
-        document.getElementById('expenseAmount').value = '';
-        document.getElementById('expenseDate').value = new Date().toISOString().split('T')[0];
-        document.getElementById('expenseType').value = '';
+        document.getElementById('recurringExpenseName').value = '';
+        document.getElementById('recurringExpenseAmount').value = '';
+        document.getElementById('recurringExpenseDate').value = new Date().toISOString().split('T')[0];
+        document.getElementById('recurringExpenseType').value = '';
+    } else {
+        editingRecurringExpense = null;
     }
 }
 
 // Add expense to the selected section
 function addExpense() {
-  const name = document.getElementById('expenseName').value.trim();
-  const amountInput = parseFloat(document.getElementById('addexpenseAmount').value.replace(/[^0-9.]/g, '')).toFixed(2);
-  const date = document.getElementById('expenseDate').value;
-  const type = document.getElementById('expenseType').value;
-  
-  console.log("Name:", name);
-  console.log("Amount:", amountInput);
-  console.log("Date:", date);
-  console.log("Type:", type);
+    const nameInput = document.getElementById('recurringExpenseName');
+    const amountInput = document.getElementById('recurringExpenseAmount');
+    const dateInput = document.getElementById('recurringExpenseDate');
+    const typeInput = document.getElementById('recurringExpenseType');
+    const name = nameInput.value.trim();
+    const amount = Number(amountInput.value);
+    const date = dateInput.value;
+    const type = typeInput.value;
 
-    // if (!name || !amountInput || !date || !type) {
-    //     alert("Please fill all details.");
-    //     return;
-    // }
-
-    const amount = parseFloat(amountInput);
-    if (isNaN(amount)) {
-        alert("Invalid amount entered.");
+    if (!name || !Number.isFinite(amount) || amount <= 0 || !date || !type) {
+        alert("Please enter a name, a positive amount, a date, and an interval.");
         return;
     }
 
     const section = document.getElementById(type);
+    if (!section) {
+        alert("Please select a valid expense interval.");
+        return;
+    }
+
+    if (editingRecurringExpense) {
+        const oldGroup = editingRecurringExpense.closest('.expenses_group');
+        editingRecurringExpense.remove();
+        if (oldGroup && !oldGroup.querySelector('li')) oldGroup.remove();
+    }
+
     section.style.display = 'block';
 
     // Remove 'Nothing yet 👀' if it exists
@@ -294,27 +309,45 @@ function addExpense() {
 
     const ul = group.querySelector('ul');
     const li = document.createElement('li');
-    li.innerHTML = `
-        ${name} <span>$${amount.toFixed(2)}</span> 
-        <span class="edit-btn" onclick="editExpense(this)">✎</span>
-    `;
+    li.dataset.name = name;
+    li.dataset.amount = amount.toFixed(2);
+    const nameElement = document.createElement('span');
+    nameElement.textContent = name;
+    const amountElement = document.createElement('span');
+    amountElement.textContent = `$${amount.toFixed(2)}`;
+    const editButton = document.createElement('span');
+    editButton.className = 'edit-btn';
+    editButton.textContent = '✎';
+    editButton.setAttribute('role', 'button');
+    editButton.tabIndex = 0;
+    editButton.setAttribute('aria-label', `Edit ${name}`);
+    editButton.addEventListener('click', () => editExpense(editButton));
+    editButton.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            editExpense(editButton);
+        }
+    });
+    li.append(nameElement, amountElement, editButton);
     ul.appendChild(li);
 
+    editingRecurringExpense = null;
     toggleExpenseForm(false);
 }
 
 // Edit existing expense
-function editExpense(el) {
-    const li = el.parentElement;
-    const [namePart, amountPart] = li.textContent.replace('✎', '').trim().split('$');
-    
-    document.getElementById('expenseName').value = namePart.trim();
-    document.getElementById('expenseAmount').value = parseFloat(amountPart).toFixed(2);
-    document.getElementById('expenseDate').value = new Date().toISOString().split('T')[0];
-    
-    // You can also autofill the type if desired
+function editExpense(button) {
+    const li = button.closest('li');
+    const group = li ? li.closest('.expenses_group') : null;
+    const section = li ? li.closest('.expenses_list') : null;
+    if (!li || !group || !section) return;
+
     toggleExpenseForm(true);
-    li.remove(); // Remove old, will re-add on submit
+    document.getElementById('recurringExpenseName').value = li.dataset.name;
+    document.getElementById('recurringExpenseAmount').value = li.dataset.amount;
+    document.getElementById('recurringExpenseDate').value = group.dataset.date;
+    document.getElementById('recurringExpenseType').value = section.id;
+    editingRecurringExpense = li;
 }
 
 // Default show first tab

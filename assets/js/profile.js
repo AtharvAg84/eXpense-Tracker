@@ -3,6 +3,12 @@
 // ====================
 document.addEventListener('DOMContentLoaded', function () {
   const currentUserEmail = localStorage.getItem('currentUser');
+  const logoutLink = document.querySelector('.sidebar .logout a');
+  if (logoutLink) {
+    logoutLink.addEventListener('click', function () {
+      localStorage.removeItem('currentUser');
+    });
+  }
 
   // Check if user is logged in, otherwise redirect to login
   if (!currentUserEmail) {
@@ -212,8 +218,9 @@ function addTransaction(category, amount, note = '', date = new Date().toISOStri
 // ====================
 // Generate Report (Optional Feature)
 // ====================
-document
-  .querySelector('.profile-btn.generate-report')
-  .addEventListener('click', function () {
+const generateReportButton = document.querySelector('.profile-btn.generate-report');
+if (generateReportButton) {
+  generateReportButton.addEventListener('click', function () {
     alert('Generating financial report... (Feature coming soon!)');
   });
+}

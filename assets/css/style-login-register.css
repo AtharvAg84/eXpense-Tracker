@@ -196,7 +196,7 @@ input {
   margin-bottom: 10px;
 }
 
-#field-required{
+.field-required {
   color: red;
   font-size: 0.9em;
   margin-top: 3px;
